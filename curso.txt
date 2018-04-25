@@ -1,0 +1,358 @@
+  ----- CURSO completo de web development -----
+
+- Enlaces.
+
+  - https://www.w3schools.com/html/html_intro.asp             - HTML5, versión más reciente de HTML.
+  - https://www.w3schools.com/css/css_intro.asp               - CSS, hojas de estilo.
+    - http://sass-lang.com/                                   - SASS, preprocesador de CSS.
+  - http://getbootstrap.com/getting-started/                  - Página principal de bootstrap.
+  - https://www.w3schools.com/js/                             - Javascript, programación en el navegador.
+  - https://babeljs.io/docs/plugins/                          - Babel, transpilador para es6.
+    - http://es6-features.org/#NumberFormatting               - ES6 features, características de ES6.
+    - https://laracasts.com/series/es6-cliffsnotes            - ES6 videos, videotutoriales de ES6.
+  - https://angularjs.org/                                    - Página principal de angularjs.
+    - https://code.angularjs.org/1.6.4/docs/guide             - Documentación de angularjs.
+  - https://github.com/angular-ui/ui-router                   - ui-router, ruteador para angular.
+  - http://www.restapitutorial.com/                           - REST, restful webservices.
+  - https://sailsjs.com/get-started                           - SailsJs, programación del lado del servidor con JS.
+  - https://www.postgresql.org/docs/8.0/static/tutorial.html  - Postgresql, relational database.
+
+  - https://nodejs.org/es/                                    - NodeJs, entorno de ejecución para javascript.
+    - https://github.com/creationix/nvm                       - NVM, manejador de versiones para nodejs.
+  - https://www.npmjs.com/                                    - Npm, manejador de paquetes.
+  - https://gruntjs.com/                                      - GruntJs, para automatizar tareas.
+  - https://git-scm.com/                                      - Git, sistema para control de versiones.
+
+  - https://github.com/necolas/normalize.css                  - NormalizeCSS, para normalizar estilos.
+  - http://fontawesome.io/icons/                              - Iconografía en fuente.
+  - https://angular-ui.github.io/bootstrap/                   - Directivas de angular para bootstrap.
+  - https://lodash.com/docs/4.17.4                            - Lodash, librería de javascript.
+  - https://momentjs.com/                                     - MomentJs, librería de javascript para fechas.
+
+
+
+
+  Extras:
+
+  - https://docs.angularjs.org/guide/component            - Angularjs components.
+  - https://github.com/johnpapa/angular-styleguide        - Styleguides para angular 1 y 2.
+  - https://github.com/rwwagner90/angular-styleguide-es6  - Styleguides para ES6.
+  - https://jasmine.github.io/2.5/introduction            - Jasmine, para aserciones en pruebas automatizadas.
+  - https://projects.invisionapp.com                      - Invision, plataforma para mocks interactivos.
+  - https://www.ag-grid.com                               - Ag grid, librería para grids.
+  - https://neutrino.js.org/presets/neutrino-preset-web/  - Neutrino, constructor de bases para aplicaciones.
+  - https://webpack.js.org/concepts/                      - Webpack, empaquetador.
+
+
+
+
+
+  ----- Tutorial para practicar yo -----
+
+  - git clone --depth=16 https://github.com/angular/angular-phonecat.git
+  - sudo apt-get install node npm
+  - npm install       // Descargar las dependencias de la aplicación:
+
+    Bower - client-side code package manager
+    Http-Server - simple local static web server
+    Karma - unit test runner
+    Protractor - end-to-end (E2E) test runner
+
+  - Los siguientes scripts están disponibles:
+
+    npm start: Start a local development web server: http://localhost:8000/index.html.
+    npm test: Start the Karma unit test runner, whic reads this file: karma.conf.js.
+    npm run protractor: Run the Protractor E2E tests.
+      protractor reads this file: e2e-tests/protractor.conf.js. Start the server first with npm start.
+    npm run update-webdriver: Install the drivers needed by Protractor.
+
+  - java -version     // Verificar la versión de java, el cual debe estar instalado para correr pruebas e2e.
+
+* Creación de proyecto (importar angular, crear app module, routes, etc).
+* Controladores.
+* Servicios.
+* Modelos.
+* ui-route.
+* Directivas precargadas.
+* Directivas de usuario.
+
+
+
+
+
+  ----- Angularjs -----
+
+
+- Creación del proyecto.
+
+   1- sudo apt-get install nginx
+   2- sudo vim /etc/hosts
+
+      127.0.0.1 local.curso-angularjs-bootstrap.com                       // Agregar esto al archivo hosts.
+
+   3- sudo service nginx restart                                          // Reiniciar nginx y verificar que localhost es servido por nginx.
+   4- sudo cp ~/Desktop/curso.conf /etc/nginx/sites-available/            // Este será el vhost.
+   5- sudo vim /etc/nginx/sites-available/curso.conf                      // Hacer los cambios necesarios en las rutas.
+   6- cd /etc/nginx/sites-enabled/                                        // Ir a la carpeta de sitios habilitados de nginx.
+   7- sudo ln -s ../sites-available/curso.conf ./                         // Habilitar el sitio del vhost curso.conf.
+   8- sudo service nginx restart                                          // Reiniciar nginx.
+   9- cd ~/Documents/ && mkdir curso-angular-bootstrap
+  10- cd curso-angular-bootstrap && mkdir src && cd src && touch index.html
+  11- Copiar lo siguiente en index.html
+
+      <!DOCTYPE html>
+      <html ng-app="CursoApp">
+        <head>
+          <meta charset="utf-8">
+          <title>Curso de AngularJS y BootstrapCSS</title>
+          <style type="text/css">
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+              display: none !important;
+            }
+          </style>
+        </head>
+        <body>
+          <header>Esta será la cabecera de la aplicación</header>
+          <nav>
+            <ul>
+              <li><a href="" ui-sref="login">Login</a></li>
+              <li><a href="" ui-sref="registro">Registro</a></li>
+              <li><a href="" ui-sref="perfil">Perfil</a></li>
+            </ul>
+          </nav>
+          <section>
+            <ui-view></ui-view>
+          </section>
+          <footer>Este será el pie de página de la aplicación</footer>
+
+          <script src="lib/angularjs/angular-1.6.4.min.js"></script>
+          <script src="lib/angular-ui-router/angular-ui-router-1.0.3.min.js"></script>
+          <script src="app/app.js"></script>
+          <script src="app/login/routes.js"></script>
+          <script src="app/login/login.controller.js"></script>
+          <script src="app/login/login.service.js"></script>
+        </body>
+      </html>
+
+
+  12- cd ~/Documents/curso-angular-bootstrap/src && mkdir css && mkdir && lib
+  13- Ir a https://angularjs.org/
+    13.1 - Descargar el archivo de angular.
+    13.2 - Renombrar el archivo como 'angular-1.6.4.min.js'
+    13.3 - Guardar el archivo en lib/angularjs.
+  14- cd ~/Documents/curso-angular-bootstrap/src/lib && mkdir angular-ui-router && cd angular-ui-router && touch angular-ui-router-1.0.3.min.js
+  15- Ir a https://unpkg.com/angular-ui-router@1.0.3/release/angular-ui-router.min.js
+    15.1 - Copiar el código y pegarlo en el archivo previamente creado.
+  16- cd ~/Documents/curso-angular-bootstrap/src && mkdir app && cd app && touch app.js
+  17- Copiar lo siguiente en el archivo previamente creado:
+
+      angular
+        .module("CursoApp", ["ui.router"])
+        .config(function ($urlRouterProvider) {
+          $urlRouterProvider.otherwise('/login');
+        });
+
+  18 - cd ~/Documents/curso-angular-bootstrap/src && mkdir assets
+  19 - Mover la imagen del árbol a la carpeta assets.
+
+  20- cd ~/Documents/curso-angular-bootstrap/src/app && mkdir login && cd login && mkdir partials && cd partials && touch login.tpl.html
+
+      <form name="loginForm" novalidate ng-submit="login(data)">
+        <img src="assets/tree.png" alt="Login árbol" /><br />
+        Nombre de usuario: {{data.username}}<br />
+        <input id="username" name="username" type="email" class="" ng-model="data.username" required /><br />
+        <div ng-show="loginForm.$submitted || loginForm.username.$dirty">
+          <div class="" ng-show="loginForm.username.$error.required">Por favor especifique su nombre de usuario.</div>
+          <div class="" ng-show="loginForm.username.$error.email">Por favor especifique un email válido.</div>
+        </div><br />
+        Contraseña de usuario: {{datra.password}}<br />
+        <input id="password" name="password" type="password" class="" ng-model="data.password" required /><br />
+        <div ng-show="loginForm.$submitted || loginForm.password.$dirty">
+          <div class="" ng-show="loginForm.password.$error.required">Por favor especifique su contraseña.</div>
+        </div><br />
+        <input id="enviar" name="enviar" type="submit" class="" value="Ingresar" ng-disabled="loginForm.$invalid" />
+        <input id="syncVsAsync" name="syncVsAsync" type="button" class="" value="Sync vs Async" ng-click="syncVsAsync()" />
+      </form>
+
+  21- cd ~/Documents/curso-angular-bootstrap/src/app/login && touch login.controller.js
+  22- Copiar lo siguiente en el archivo previamente creado:
+
+      angular
+        .module("CursoApp")
+        .controller("LoginCtrl", function ($log, $scope, $state, $q, LoginService) {
+          $log.log('-----0--: En el controlador del login');
+
+          $scope.data = {};
+
+          $scope.login = function (data) {
+            $log.log("Login data: ", data);
+
+            LoginService
+              .login(data.username, data.password)
+              .then(function (success) {
+                $log.log("Sin errores: ", success);
+
+                $state.go("profile", {username: data.username});
+              })
+              .catch(function (error) {
+                $log.log("Ocurrió un error:", error);
+
+                alert("ocurrió un error");
+              })
+              .finally(function () {
+                $log.log("Esto se ejecuta al final, siempre");
+              });
+          };
+
+          $scope.syncVsAsync = function () {
+            $log.log("Mensaje 1 -- Esto es síncrono");
+
+            LoginService
+              .syncVsAsync()
+              .then(function (success) {
+                $log.log("Mensaje 2_1 -- ", success);
+              })
+              .catch(function (error) {
+                $log.log("Mensaje 2_2 -- ", error);
+              });
+
+            for (var i = 0; i <= 2; i++) {
+              $log.log("Mensaje 3 -- Esto es síncrono");
+            }
+          };
+        });
+
+  23- cd ~/Documents/curso-angular-bootstrap/src/app/login && touch login.service.js
+
+      angular
+        .module("CursoApp")
+        .service("LoginService", function ($log, $http, $q) {
+          $log.log('-----0--: En el servicio del login');
+
+          this.login = function (username, password, config) {
+            var url = "";
+            var data = {
+              username: username,
+              password: password
+            };
+            var config = config || {};
+
+            // return $http.post(url, angular.toJson(data), config);
+
+            var deferred = $q.defer();
+
+            deferred.resolve({mensaje: "Todo bien!"});
+
+            return deferred.promise;
+          };
+
+          this.syncVsAsync = function () {
+            var deferred = $q.defer();
+            // deferred.resolve("Esto es asíncrono");
+            deferred.reject("Esto es asíncrono");
+
+            return deferred.promise;
+          };
+        });
+
+  24- cd ~/Documents/curso-angular-bootstrap/src/app/login && touch routes.js
+  25- Copiar lo siguiente en el archivo previamente creado:
+
+      angular
+        .module("CursoApp")
+        .config(function ($stateProvider) {
+          $stateProvider
+            .state("login", {
+              url: "/login",
+              templateUrl: "app/login/partials/login.tpl.html",
+              controller: "LoginCtrl"
+            })
+        });
+
+
+
+
+
+  ----- Bootstrap -----
+
+- Las siguientes etiquetas deben estar primero en la sección head:
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+- Crear la carpeta 'normalize' en 'src/lib'.
+- Crear el archivo 'normalize-7.0.0.css' en la carpeta recién creada 'normalize'.
+- Ir a https://necolas.github.io/normalize.css/7.0.0/normalize.css copiar el código y pegarlo en el archivo recién creado 'normalize-7.0.0.css'.
+- Incluir el archivo normalize-7.0.0.css en index.html después de la etiqueta <title>
+
+  <!-- Normalize CSS -->
+  <link href="lib/normalize/normalize-7.0.0.css" rel="stylesheet">
+
+- Ir a http://getbootstrap.com/getting-started/ y descargar bootstrap.
+- Descomprimir y renombrar la carpeta a 'bootstrap-3.3.7'.
+- Mover la carpeta a 'src/lib'.
+- Incluir bootstrap en index.html agregando en la sección head los archivos: 'bootstrap.min.css' y 'bootstrap-theme.min.css'.
+
+  <!-- Bootstrap core CSS -->
+  <link href="lib/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap theme -->
+  <link href="lib/bootstrap-3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+
+- Crear el archivo 'styles.css' en la carpeta 'src/css', aquí irán los estilos de la aplicación.
+- Incluir el archivo recién creado, en index.html, después de bootstrap.
+
+  <!-- Application CSS -->
+  <link href="css/styles.css" rel="stylesheet">
+
+- En el index.html envolver la etiqueta de <section> en este div <div class="container"> como sigue:
+
+  <div class="container">
+    <section>
+      <ui-view></ui-view>
+    </section>
+  </div>
+
+- A partir de aquí, se crearán las secciones de la página tomando en cuenta las siguientes reglas:
+
+  + Bootstrap usa un grid de 12 columnas, es decir, divide el total del área de trabajo en doce columnas, c/u con padding a los lados.
+  + Los renglones (class="row") deben ir dentro del contenedor (class="container").
+  + Se utilizan los renglones para crear grupos horizontales de columnas.
+  + El contenido debe ser puesto en columnas, por ejemplo: class="col-lg-12".
+  + Las columnas son las únicas que pueden ser hijas inmediatas del renglón.
+  + Las columnas tienen padding a los lados, el renglón tiene un padding negativo para aprovechar ese espacio en la primera y última columna.
+  + Las columnas del grid se crean especificando el número de columnas que se quieren utilizar de las 12 disponibles, por ejemplo, para 
+    crear tres columnas iguales en una pantalla grande se usarían tres capas con esta clase: class="col-lg-4".
+  + Si se ponen más de 12 columnas en un renglón, cada grupo de columnas extra se mostrará en una línea nueva (no usar más de 12).
+  + Las clases para pantallas menores se aplican a las pantallas mayores si no hay clase especificada para la pantalla mayor:
+
+    Por ejemplo, usando una clase mediana: .col-md-* afectará a pantallas medianas y grandes, si no hay una clase .col-lg-* presente.
+
+  + Las columnas se dividen en cuatro breakpoints:
+
+    - col-xs-* (pantalla < 768px)
+    - col-sm-* (pantalla >= 768px y pantalla < 992px)
+    - col-md-* (pantalla >= 992px y pantalla < 1200px)
+    - col-lg-* (pantalla >= 1200px)
+
+- Un ejemplo de uso podría ser en la cabecera (ya todo está dentro de class="container" porque agregamos una clase contenedora):
+
+  <header class="bg-success">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-1">
+          Logo
+        </div>
+        <div class="col-xs-11 text-right">
+          Un elemento a la derecha
+        </div>
+      </div>
+    </div>
+  </header>
+
+- Ir a http://getbootstrap.com/css/ para ver los ejemplos y guías.
+
+
+
+
+

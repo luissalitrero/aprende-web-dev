@@ -1,0 +1,203 @@
+{
+  "name": "curso",
+  "version": "1.0.0",
+  "description": "Turorial programación frontend:",
+  "main": "index.html",
+  "scripts": {
+    "install-dependencies": "npm install"
+  },
+  "keywords": [],
+  "author": "Luis Armando Salitrero Pérez",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/material": "5.1.0",  // high-quality UI components built with Angular and TypeScript, following the Material Design spec.
+    "@uirouter/angularjs": "1.0.13",  // The de-facto solution to flexible routing in angular
+    "ag-grid": "15.0.0",  // HTML 5 Grid/table.
+    "angular": "1.6.4",  // Angular.
+    "angular-animate": "1.6.4",  // Animations with css and js.
+    "angular-aria": "1.6.8",  // Support for ARIA attributes that convey semantic info about the app for users of assistive technologies.
+    "angular-google-map": "0.0.2",  // Angular directive to display a custom google map.
+    "angular-loader": "1.6.8",  // asynchronously load files: https://stackoverflow.com/questions/15777449/what-is-angular-loader-js-for
+    "angular-loading-bar": "0.9.0",  // Add a loading bar whenever an XHR request goes out.
+	"angular-local-storage": "0.7.1",  // An Angular module that gives you access to the browsers local storage.
+    "angular-localstorage": "1.1.5",  // Provide read/write access to browsers' localStorage.
+    "angular-material": "1.1.6",  // high-quality UI components built with Angular and TypeScript, following the Material Design spec.
+    "angular-mocks": "1.6.8",  // This is used to inject and mock AngularJS services within unit tests.
+    "angular-nvd3": "1.0.9",  // This thing is designed to make it easier to work with nvd3.js re-usable charting library.
+    "angular-route": "1.6.8",  // The ngRoute module provides routing and deeplinking services and directives for AngularJS apps.
+    "angular-touch": "1.6.8",  // The ngTouch module provides helpers for touch-enabled devices. Based on jQuery Mobile touch event handling.
+    "angular-ui-bootstrap": "2.5.6",  // Bootstrap components written in pure AngularJS by the AngularUI Team
+    "angular-ui-calendar": "1.0.2",  // A complete AngularJS directive for the Arshaw FullCalendar.
+    "angular-xeditable": "0.8.1",  // Edit in place for AngularJS
+    "async": "2.6.0",  // Async is a utility module which provides straight-forward, powerful functions for working with asynchronous JS.
+    "autoprefixer": "7.2.3",  // adds vendor prefixes, using data from "Can I Use". https://github.com/postcss/postcss
+    "awesome-bootstrap-checkbox": "1.0.0",  // Font Awesome Bootstrap Checkboxes & Radios plugin. CSS to make inputs look prettier. No JS!
+    "aws-sdk": "2.177.0",  // The official AWS SDK for JavaScript, available for browsers and mobile devices, or Node.js backends
+    "babelify": "8.0.0",  // For use with browserify. In Babel 6.0.0 there are no plugins included by default. You must include some presets and/or plugins.
+    "babel-cli": "6.26.0",  // Babel command line. In addition, various entry point scripts live in the top-level package at babel-cli/bin.
+    "babel-plugin-transform-class-properties": "6.24.1",  // Transform es2015 static class props and props in es2016 prop initializer syntax.
+    "babel-plugin-transform-runtime": "6.23.0",  // Externalise refs to helpers/builtins, polyfills your code w/o polluting globals (Recommend for library/tool).
+    "babel-polyfill": "6.26.0",  // emulate a full ES2015+ environment and is intended to be used in an app rather than a library/tool.
+    "babel-preset-env": "1.6.1",  // Compile ES2015+ to ES5 including all new features.
+    "babel-preset-es2015": "6.24.1",  // Compile ES2015+ to ES5, ES2015 is the same version as ES6.
+    "babel-preset-stage-0": "6.24.1",  // It includes all plugins from presets 1, 2, 3; plus: transform-do-expressions and transform-function-bind.
+    "babel-register": "6.26.0",  // The require hook will bind itself to node's require and automatically compile files on the fly.
+    "babel-runtime": "6.26.0",
+	"better-validator": "2.1.7",  // better-validator is my second generation object or request validator for node.js.
+    "bootstrap": "3.3.7", // front-end framework for faster and easier web development, created by Mark Otto and Jacob Thornton.
+    "braintree": "2.4.0",  // Accept web and mobile payments.
+    "browserify": "15.2.0",  // Use a node-style require() to organize your browser code and load modules installed by npm.
+    "browser-sync": "2.23.6", // Keep multiple browsers & devices in sync when building websites.
+    "bunyan": "1.8.12",  // a simple and fast JSON logging library for node.js services.
+    "busboy": "0.2.14",  // A node.js module for parsing incoming HTML form data.
+    "cache-manager": "2.6.0",  // Cache module for nodejs; allows wrapping of functions in cache, tiered caches, and a consistent interface.
+    "cacheman": "2.2.1",  // Small and efficient cache provider for Node.JS with In-memory, File, Redis and MongoDB engines.
+    "chai": "4.1.2",  // Chai is an assertion library for node and the browser that can be paired with any javascript testing framework.
+    "chai-as-promised": "7.1.1",  // Chai as Promised extends Chai with a fluent language for asserting facts about promises.
+    "chai-fuzzy": "1.6.1",  // Fuzzy matchers for chai based on underscore and inspired by jasmine.
+    "chance": "1.0.13",  // Random generator helper for JavaScript
+    "check-js": "0.0.4",  // A JSON validator with schema and sanification(optional).
+    "cheers": "0.5.0",  // This is a Cheerio based scraper, useful to extract data from a website using CSS selectors.
+    "cities.json": "1.1.0",  // Cities of the World. The cities comes from GeoNames Gazetteer: http://www.geonames.org
+    "composable-middleware": "0.3.0",  // Treat a sequence of middleware as middleware.
+    "compression": "1.7.1",  // Node.js compression middleware. The following compression codings are supported: deflate, gzip
+    "connect-redis": "3.3.2",  // Redis session store backed by node_redis. Requires redis >= 2.0.0 for the SETEX command.
+    "cookie": "0.3.1",  // Basic HTTP cookie parser and serializer for HTTP servers.
+    "cookie-parser": "1.4.3",  // Parse Cookie header and populate req.cookies with an object keyed by the cookie names. 
+    "coveralls": "2.11.6",  // Get the great coverage reporting of coveralls.io and add a cool coverage button to your README.
+    "crypto-js": "3.1.9-1",  // JavaScript library of crypto standards.
+    "elasticsearch": "14.0.0",  // The official low-level Elasticsearch client for Node.js and the browser.
+    "email-validation": "0.1.2",  // Node.JS email validation that follows the specs.
+    "etag": "1.8.1",  // This module generates HTTP ETags (as defined in RFC 7232) for use in HTTP responses.
+    "excel-export": "0.5.1",  // A simple node.js module for exporting data set to Excel xlsx file.
+    "faker": "4.1.0",  // Generate massive amounts of fake data in the browser and node.js
+    "font-awesome": "4.7.0",  // Font Awesome is a full suite of 675 pictographic icons for easy scalable vector graphics on websites.
+    "fs-extra": "5.0.0",  // Adds file system methods that aren't included in the native fs module; adds promise support to the fs methods.
+    "generic-pool": "3.4.0",  // Resource pool with Promise based API. Used to reuse/throttle usage of expensive resources e.g. DB connections.
+    "glob": "7.1.2",  // Match files using the patterns the shell uses, like stars and stuff.
+    "google-oauth2": "0.1.0",  // Google OAuth2 authentication tools for many Google APIs. With borrowed code from node-gAUth by Ben Lyaunzon.
+    "googleapis": "23.0.0",  // Library for using Google APIs. Support for OAuth 2.0 authorization/authentication, API Keys and JWT included.
+    "grunt": "1.0.1",  // The JavaScript Task Runner.
+    "grunt-angular-templates": "1.1.0",  // Speed up your AngularJS app by minifying/combining/caching HTML templates with $templateCache.
+    "grunt-asset-injector": "0.1.0",  // Inject references to files into other files (think scripts and stylesheets into an html file).
+    "grunt-babel": "7.0.0",  // Use next generation JavaScript, today, with Babel.
+    "grunt-browserify": "5.2.0",  // Grunt task for browserify.
+    "grunt-cli": "1.2.0",  // Install this globally and you'll have access to the grunt command anywhere on your system.
+    "grunt-concurrent": "2.3.1",  // Run grunt tasks concurrently.
+    "grunt-contrib-clean": "1.1.0",  // Clean files and folders.
+    "grunt-contrib-compress": "1.4.3",  // Compress files and folders.
+    "grunt-contrib-concat": "1.0.1",  // Concatenate files.
+    "grunt-contrib-connect": "1.0.2",  // Start a connect web server.
+    "grunt-contrib-copy": "1.0.0",  // Copy files and folders.
+    "grunt-contrib-cssmin": "2.2.1",  // Minify CSS.
+    "grunt-contrib-htmlmin": "2.4.0",  // Minify HTML.
+    "grunt-contrib-imagemin": "2.0.1",  // Minify images using imagemin.
+    "grunt-contrib-less": "1.4.1",  // Compile LESS files to CSS.
+    "grunt-contrib-sass": "1.0.0",  // Compile Sass to CSS.
+    "grunt-contrib-uglify": "3.3.0",  // Minify JavaScript files with UglifyJS
+    "grunt-contrib-watch": "1.0.0",  // Run predefined tasks whenever watched file patterns are added, changed or deleted.
+    "grunt-env": "0.4.4",  // Specify an ENV configuration as a task.
+    "grunt-execute": "0.2.2",  // Grunt plugin for executing shell commands.
+    "grunt-express-server": "0.5.3",  // Simple grunt task for running an Express server that works great with LiveReload + Watch/Regarde.
+    "grunt-html-build": "0.7.1",  // HTML Builder - Appends scripts and styles, Removes debug parts, append html partials, Template options.
+    "grunt-http-server": "2.0.0",  // HTTP server to serve your static files that you can hook in your grunt build.
+    "grunt-jasmine-npm": "0.2.1",  // Run jasmine tests with the official runner. Use jasmine-reporters or jasmine-spec-reporter for reporting.
+    "grunt-jquery-builder": "0.2.1",  // Creates custom builds of jQuery using the jQuery Builder tool.
+    "grunt-karma": "2.0.0",  // Grunt plugin for Karma, Spectacular Test Runner for JavaScript.
+    "grunt-mocha": "1.0.4",  // Automatically run client-side mocha specs via grunt/mocha/PhantomJS.
+    "grunt-mocha-test": "0.13.3",  // A grunt task for running server side mocha tests.
+    "grunt-mongo-bin": "0.1.0",  // Run MongoDB CLI tasks the easy way. Import, export, dump, restore, and more!.
+    "grunt-ng-annotate": "3.0.0",  // Add, remove and rebuild AngularJS dependency injection annotations. Based on ng-annotate.
+    "grunt-nodemon": "0.4.2",  // Run nodemon as a grunt task for easy configuration and integration with the rest of your workflow
+    "grunt-open": "0.2.3",  // Open urls and files from a grunt task.
+    "grunt-postcss": "0.9.0",  // Apply several post-processors to your CSS using PostCSS.
+    "grunt-protractor-runner": "5.0.0",  // A Grunt plugin for running Protractor runner.
+    "grunt-serve": "0.1.6",  // Starts a http server that can be called to run Grunt tasks and serve files.
+    "grunt-shell": "2.1.0",  // Run shell commands.
+    "grunt-svgmin": "5.0.0",  // Minify SVG using SVGO.
+    "grunt-usemin": "3.1.1",  // Replaces references from non-optimized scripts/stylesheets/etc. for optimized versions in a set of HTML/templates/views.
+    "hawk": "7.0.5",  // HTTP auth scheme using a message auth code (MAC) algorithm to give partial HTTP request cryptographic verification.
+    //"highcharts": "6.0.4",  // There are many modules related to charts, look at https://github.com/kirjs/publish-highcharts-modules
+    "hogan.js": "3.0.2",  // compiler for the Mustache templating language.
+    "hooker": "0.2.3",  // Monkey-patch (hook) functions for debugging and stuff.
+    "inflection": "1.12.0",  // A port of inflection-js to node.js module. Extra methods, like indexOf.
+    "jade": "1.11.0",  // high performance template engine heavily influenced by Haml and implemented with JavaScript for node and browsers.
+    "jit-grunt": "0.10.0",  // A JIT (Just In Time) plugin loader for Grunt. Reduce load time of grunt tasks.
+    "jquery": "3.2.1",  // jQuery
+    "angular-nicescroll": "0.0.0",  // Smooth scroll from "jquery.nicescroll": "3.7.6".
+    "jsonwebtoken": "8.1.0",  // Implementation of JSON Web Tokens; developed against draft-ietf-oauth-json-web-token-08; It uses node-jws.
+    "jstz": "2.0.0",  // Timezone detection for JavaScript.
+"live-server": "", // a little development server with live reload capability. Use it for hacking your HTML/JavaScript/CSS files, but not for deploying the final site.
+    "load-grunt-tasks": "3.5.2",  // Load multiple grunt tasks using globbing patterns, to avoid using 'grunt.loadNpmTasks'.
+    "lodash": "4.17.4",  // Lodash
+    "memorystore": "1.6.0",  // A session store implementation for Express using lru-cache.
+	"memory-store": "0.0.1",  // Session store in memory.
+    "method-override": "2.3.10",  // Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
+    "minimist": "1.2.0",  // parse argument options
+    "mocha-junit-reporter": "1.15.0",  // Produces JUnit-style XML test results.
+    "moment": "2.20.1",  // Moment
+    "moment-duration-format": "2.1.0",  // Format plugin for the Moment Duration object.
+    "moment-timezone": "0.5.14",  // IANA Time Zone Database + Moment.js.
+    "money": "0.2.0",  // Tiny library for realtime currency conversion and exchange rate calculation, from any currency, to any currency.
+    "multer": "1.3.0",  // Handle multipart/form-data, which is primarily used for uploading files; written on top of busboy.
+    "mysql": "2.15.0",  // MySql
+    "ng-file-upload": "12.2.13",  // Lightweight Angular directive to upload files.
+    "ng-mask": "3.1.1",  // Angular mask without dependencies (NO JQUERY).
+    "ng-tags-input": "3.2.0",  // Tags input directive for AngularJS. http://mbenford.github.io/ngTagsInput
+	"nodemon": "1.14.11",  // Watch files in the directory in which nodemon was started, if any file change, nodemon will restart your node application.
+    "ngmap": "1.18.4",  // GoogleMap AngularJS Directive
+    "node-validator": "0.1.27",  // A simple, extensible object property validator for node.js.
+    "node-xlsx": "0.11.2",  // Excel file parser/builder that relies on js-xlsx.
+    "nodemailer": "4.4.1",  // Send e-mails from Node.js
+    "nodemailer-smtp-transport": "2.7.4",  // SMTP module for Nodemailer.
+    "nodemailer-wellknown": "0.2.3",  // Returns SMTP configuration for well-known services to be used with Nodemailer.
+    "normalize-css": "2.3.1",  // A collection of HTML element and attribute style-normalizations
+    "npm-check": "5.5.2",  // Check for outdated, incorrect, and unused dependencies.
+	"override": "0.0.1",  // General purpose middleware framework for Node.js that lets you override and extend built in functionality..
+    "papaparse": "4.3.6",  // In-browser CSV (or delimited text) parser for JavaScript. It is reliable and correct according to RFC 4180.
+    "parallelshell": "3.0.2",  // Run shell commands in parallel.
+	"passport-google-oauth2": "0.1.6",  // Passport strategies for authenticating with Google using ONLY OAuth 2.0.
+    "pg": "7.4.0",  // Non-blocking PostgreSQL client for node.js. Pure JavaScript and optional native libpq bindings.
+    "pg-hstore": "2.3.2",  // A node package for serializing and deserializing JSON data to hstore format.
+    "phantomjs-prebuilt": "2.1.16",  // Headless webkit with JS API.
+"postbuild": "", // A command line utility to inject css and js files into an html file or to remove code based on conditions.
+    "prequest": "1.0.0",  // Promisified HTTP requests with bluebird and request modules.
+    "random-js": "1.0.8",  // A mathematically correct random number generator library for JavaScript.
+    "redis": "2.8.0",  // Redis client for node.js. It supports all Redis commands and focuses on high performance.
+    "redislock": "1.3.0",  // Locking using redis with lua scripts. For redis >= 2.6.12. Locking strategies based on SETNX or WATCH/MULTI.
+    "redis-lock": "0.1.4",  // Fully non-blocking and asynchronous, and uses the algorithm described in the redis docs.
+    "rimraf": "2.6.2",  // The UNIX command rm -rf for node.
+	"scarlet": "2.0.20",  // The simple fast javascript interceptor.
+    "sequelize": "4.28.6",  // Postgres/MySQL/etc promise-based ORM, with solid transaction support, relations, read replication etc.
+    "sequelize-cli": "3.2.0",  // The Sequelize Command Line Interface (CLI).
+    "sequelize-fixtures": "0.7.0",  // This is a simple lib to load data to database using sequelize.
+    "serve-favicon": "2.4.5",  // Middleware for serving a favicon.
+    "simpl-schema": "1.4.0",  // Validate JS objects so they match a schema, clean objects to convert types, remove unsupported props, etc.
+    "simple-schema": "1.1.0",  // Simple object validation framework with no dependencies.
+    "sinon": "4.1.3",  // Standalone and test framework agnostic JS test spies, stubs and mocks.
+    "source-map-support": "0.5.0",  // provides source map support for stack traces via the V8 stack trace API.
+"sprity": "", // A modular image sprite generator.
+"sprity-cli": "", // Command line interface for sprity.
+    "squel": "5.12.0",  // A flexible and powerful SQL query string builder for Javascript.
+    "supertest": "3.0.0",  // HTTP assertions made easy via superagent.
+    "supertest-session": "3.1.0",  // Session wrapper around supertest.
+    "textangular": "1.5.16",  // A super cool WYSIWYG Text Editor directive for AngularJS.
+    "time-grunt": "1.4.0",  // Display the elapsed execution time of grunt tasks.
+    "tinytim": "0.1.1",  // Node.js port of tinytim, a tiny, secure JavaScript micro-templating script.
+	"tiny-tim": "0.0.4",  // A simple, small timer.
+    "toposort-class": "1.0.1",  // Sorting directed acyclic graphs, for Node.js, io.js and the browser.
+    "ui-select": "0.19.8",  // AngularJS-native version of Select2 and Selectize.
+    "unblock": "1.0.0",  // A single function for dead simple asynchronous control flow.
+    "uuid": "3.1.0",  // Simple, fast generation of RFC4122 UUIDS.
+    "validator": "9.2.0",  // A library of string validators and sanitizers.
+    "winston": "2.4.0",  // A multi-transport async logging library for node.js.
+    "wkhtmltox": "1.0.10",  // Provide access to wkhtmltopdf/wkhtmltoimage, a package with utilities for rendering HTML into various formats.
+    "xlsx": "0.11.16",  // Parser/writer for various spreadsheet formats. Pure-JS cleanroom implementation from official specs/related docs/test files.
+    "xml2js": "0.4.19",  // Simple XML to JavaScript object converter. It supports bi-directional conversion. Uses sax-js and xmlbuilder-js.
+    "xmlbuilder": "9.0.4"  // An XML builder for node.js similar to java-xmlbuilder.
+  },
+  "engines": {
+    "node": "v6.11.3",
+    "npm": "3.10.10"
+  }
+}
