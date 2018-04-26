@@ -106,7 +106,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('serve', ['clean', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'connect']);
-  grunt.registerTask('jschanged', ['clean', 'babel:dev', 'browserify:dev', 'htmlbuild:dev']);
+  grunt.registerTask('jschanged', ['babel:dev', 'browserify:dev', 'htmlbuild:dev']);
   grunt.registerTask('htmlchanged', ['htmlbuild:dev']);
   grunt.registerTask('watchFiles', ['watch']);
 

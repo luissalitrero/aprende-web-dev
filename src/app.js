@@ -1,7 +1,8 @@
 'use strict';
 
-import angular from 'angular';
-import uiRouter from '@uirouter/angularjs';
+// Comenté esto para probar usando estas librerías como globales cargadas desde una CDN
+// import angular from 'angular';
+// import uiRouter from '@uirouter/angularjs';
 
 import AppConfig from '../src/app/configs/config.js';
 import AppRun from '../src/app/configs/run.js';
@@ -9,14 +10,11 @@ import AppRun from '../src/app/configs/run.js';
 
 const name = 'lwda';
 
-console.log('-----0--',name);
-
 angular
   .module(name, [
-    uiRouter
+    // uiRouter,
+    'ui.router'
   ])
   .constant('utilities', {})
   .config(AppConfig)
   .run(AppRun);
-
-  console.log('-----1--',name);
