@@ -1,3 +1,4 @@
+// https://docs.npmjs.com/files/package.json
 {
   "name": "curso",
   "version": "1.0.0",
@@ -43,10 +44,19 @@
     "babel-preset-stage-0": "6.24.1",  // It includes all plugins from presets 1, 2, 3; plus: transform-do-expressions and transform-function-bind.
     "babel-register": "6.26.0",  // The require hook will bind itself to node's require and automatically compile files on the fly.
     "babel-runtime": "6.26.0",
+    "babel-core": "6.26.0",
+    // https://babeljs.io/docs/plugins/
+    // https://www.sitepoint.com/setting-up-es6-project-using-babel-browserify/
+    "babel-plugin-add-module-exports": "0.2.1", // https://github.com/59naga/babel-plugin-add-module-exports
 	"better-validator": "2.1.7",  // better-validator is my second generation object or request validator for node.js.
     "bootstrap": "3.3.7", // front-end framework for faster and easier web development, created by Mark Otto and Jacob Thornton.
     "braintree": "2.4.0",  // Accept web and mobile payments.
     "browserify": "15.2.0",  // Use a node-style require() to organize your browser code and load modules installed by npm.
+    // https://github.com/browserify/browserify
+    // http://browserify.org
+    // https://github.com/browserify/browserify#usage
+    // https://github.com/browserify/browserify-handbook#development
+    // https://www.npmjs.com/package/grunt-browserify
     "browser-sync": "2.23.6", // Keep multiple browsers & devices in sync when building websites.
     "bunyan": "1.8.12",  // a simple and fast JSON logging library for node.js services.
     "busboy": "0.2.14",  // A node.js module for parsing incoming HTML form data.
@@ -81,7 +91,7 @@
     "grunt-angular-templates": "1.1.0",  // Speed up your AngularJS app by minifying/combining/caching HTML templates with $templateCache.
     "grunt-asset-injector": "0.1.0",  // Inject references to files into other files (think scripts and stylesheets into an html file).
     "grunt-babel": "7.0.0",  // Use next generation JavaScript, today, with Babel.
-    "grunt-browserify": "5.2.0",  // Grunt task for browserify.
+    "grunt-browserify": "5.2.0",  // Grunt task for browserify.  // https://github.com/jmreidy/grunt-browserify
     "grunt-cli": "1.2.0",  // Install this globally and you'll have access to the grunt command anywhere on your system.
     "grunt-concurrent": "2.3.1",  // Run grunt tasks concurrently.
     "grunt-contrib-clean": "1.1.0",  // Clean files and folders.
@@ -120,6 +130,8 @@
     //"highcharts": "6.0.4",  // There are many modules related to charts, look at https://github.com/kirjs/publish-highcharts-modules
     "hogan.js": "3.0.2",  // compiler for the Mustache templating language.
     "hooker": "0.2.3",  // Monkey-patch (hook) functions for debugging and stuff.
+    "http-rewrite-middleware": "0.1.6", // Redirect (rewrite internally/redirect with HTTP codes) user to a URL with RegExp Rules. (successor of grunt-connect-rewrite).
+    // https://github.com/viart/http-rewrite-middleware
     "inflection": "1.12.0",  // A port of inflection-js to node.js module. Extra methods, like indexOf.
     "jade": "1.11.0",  // high performance template engine heavily influenced by Haml and implemented with JavaScript for node and browsers.
     "jit-grunt": "0.10.0",  // A JIT (Just In Time) plugin loader for Grunt. Reduce load time of grunt tasks.

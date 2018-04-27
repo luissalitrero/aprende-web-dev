@@ -1,8 +1,9 @@
 module.exports = function (grunt) {
+  require("load-grunt-tasks")(grunt);
+
   let serverPort = 8080;
   let baseDirectory = 'dist';
-
-  require("load-grunt-tasks")(grunt);
+  let rewriteModule = require('http-rewrite-middleware');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -74,11 +75,29 @@ module.exports = function (grunt) {
           livereload: false,
           port: serverPort,
           middleware: function (connect, options, middlewares) {
-            middlewares.unshift(function (req, res, next) {
-              if (req.url !== '/hello/world') { return next(); }
+            middlewares.push(rewriteModule.getMiddleware([
+              {from: '^/.*$', to: '/', redirect: 'permanent'},
+            ]));
 
-              res.end(`Hello, world from port # ${options.port} !`);
-            });
+            if (!Array.isArray(options.base)) {
+              options.base = [options.base];
+            }
+
+            var directory = options.directory || options.base[options.base.length - 1];
+
+            // options.base.forEach(function (base) {
+            //   // Serve static files.
+            //   middlewares.push(connect.static(base));
+            // });
+
+            // Make directory browse-able.
+            // middlewares.push(connect.directory(directory));
+
+            // middlewares.unshift(function (req, res, next) {
+            //   if (req.url !== '/hello/world') { return next(); }
+
+            //   res.end(`Hello world from port # ${options.port} !`);
+            // });
 
             return middlewares;
           },
@@ -94,14 +113,8 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      src: {
-        files: ['src/**/*.js'],
-        tasks: ['jschanged'],
-      },
-      html: {
-        files: ['src/**/*.html'],
-        tasks: ['htmlchanged'],
-      },
+      src: {files: ['src/**/*.js'], tasks: ['jschanged']},
+      html: {files: ['src/**/*.html'], tasks: ['htmlchanged']},
     }
   });
 
@@ -117,25 +130,14 @@ module.exports = function (grunt) {
 
 // Create a concatenated file with libraries and use them as globals to avoid having to be importing them every time
 // https://github.com/viart/http-rewrite-middleware
-// https://stackoverflow.com/questions/16569841/reloading-the-page-gives-wrong-get-request-with-angularjs-html5-mode/17164877#17164877
+//   https://stackoverflow.com/questions/16569841/reloading-the-page-gives-wrong-get-request-with-angularjs-html5-mode/17164877#17164877
+// https://www.youtube.com/watch?v=5e6BFaRGRzM&t=23m  <-- JavaScript Modules; RequireJS vs Browserify
+// https://www.youtube.com/watch?v=4FE-3jkD0Ag&t=29m05s  <-- Building ES6 Browser Apps w/ Grunt and Babel
 
 // https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
-// https://www.sitepoint.com/setting-up-es6-project-using-babel-browserify/
 // https://www.npmjs.com/package/babel-plugin-transform-imports
 // https://thinkster.io/angularjs-es6-tutorial
-// http://browserify.org
-// https://github.com/browserify/browserify#usage
-// https://github.com/browserify/browserify-handbook#development
-// https://www.npmjs.com/package/grunt-browserify
-// https://github.com/jmreidy/grunt-browserify
-// https://github.com/browserify/browserify
-// https://docs.npmjs.com/files/package.json
-// https://www.npmjs.com/package/mustache
-// https://www.npmjs.com/search?q=grunt+mustache
-// https://mozilla.github.io/nunjucks/
-// https://github.com/pugjs/pug
-// https://www.npmjs.com/package/grunt-contrib-watch
-// https://www.youtube.com/watch?v=4FE-3jkD0Ag&t=29m05s
-// https://www.npmjs.com/package/babel-preset-es2015
-// https://babeljs.io/docs/plugins/
-// https://github.com/59naga/babel-plugin-add-module-exports
+// https://www.npmjs.com/package/mustache  <-- Logic-less {{mustache}} templates with JavaScript.
+// https://www.npmjs.com/package/grunt-mustache-generate  <-- generate html pages and partials for reuse client side.
+// https://mozilla.github.io/nunjucks/  <-- templating engine for JavaScript.
+// https://github.com/pugjs/pug  <-- Pug is a high-performance template engine.
