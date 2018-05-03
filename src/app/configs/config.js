@@ -1,6 +1,6 @@
 'use strict';
 
-export default function appConfig($locationProvider, $urlRouterProvider, $qProvider, $stateProvider, $httpProvider) {
+function appConfig($locationProvider, $urlRouterProvider, $qProvider, $stateProvider, $httpProvider) {
   'ng-inject';
 
   $locationProvider.html5Mode({
@@ -19,16 +19,10 @@ export default function appConfig($locationProvider, $urlRouterProvider, $qProvi
   $stateProvider
     .state('lwda', {
       abstract: true,
-      url: '',
-      template: '<div ui-view></div>'
-    })
-    .state('lwda.index', {
-      url: '/inicio',
-      templateUrl: './components/main-app/main.app.tpl.html',
-      controller: function () {
-        console.log('-----1--');
-      }
+      url: ''
     });
 }
 
 appConfig.$inject = ['$locationProvider', '$urlRouterProvider', '$qProvider', '$stateProvider', '$httpProvider'];
+
+export default appConfig;

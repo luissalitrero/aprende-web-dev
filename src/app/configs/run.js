@@ -1,6 +1,6 @@
 'use strict';
 
-export default function run($rootScope, $state) {
+function run($rootScope, $state) {
   'ngInject';
 
   $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
@@ -11,3 +11,5 @@ export default function run($rootScope, $state) {
 }
 
 run.$inject = ['$rootScope', '$state'];
+
+export default run;

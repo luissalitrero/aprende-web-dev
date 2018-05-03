@@ -1,12 +1,12 @@
-// 'use strict';
+'use strict';
 
-// import angular from 'angular';
 // import mainAppModule from './main-app/main.app.module.js';
+import mainAppComponent from './main-app/main.app.component.js';
 
-// let componentsModule = angular
-//   .module('learnWebDevApp.components', [
-//     mainAppModule
-//   ])
-//   .name;
+let componentsModule = angular
+  .module('lwda.components', [
+    mainAppComponent
+  ])
+  .name;
 
-// export default componentsModule;
+export default componentsModule;

@@ -4,16 +4,15 @@
 // import angular from 'angular';
 // import uiRouter from '@uirouter/angularjs';
 
-import AppConfig from '../src/app/configs/config.js';
-import AppRun from '../src/app/configs/run.js';
-// import Components from '../src/app/components';
-
-const name = 'lwda';
+import AppConfig from './app/configs/config.js';
+import AppRun from './app/configs/run.js';
+import AppComponents from './app/components';
 
 angular
-  .module(name, [
+  .module('lwda', [
     // uiRouter,
-    'ui.router'
+    'ui.router',
+    AppComponents
   ])
   .constant('utilities', {})
   .config(AppConfig)

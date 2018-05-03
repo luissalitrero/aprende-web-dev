@@ -7,9 +7,8 @@
  * @description .
  */
 class MainAppController {
-    constructor() {
-        console.log('-----000--');
-    }
+  constructor() {
+  }
 }
 
 export default MainAppController;

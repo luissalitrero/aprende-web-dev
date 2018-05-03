@@ -120,7 +120,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', ['clean', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'connect']);
   grunt.registerTask('jschanged', ['babel:dev', 'browserify:dev', 'htmlbuild:dev']);
-  grunt.registerTask('htmlchanged', ['htmlbuild:dev']);
+  grunt.registerTask('htmlchanged', ['copy']);
   grunt.registerTask('watchFiles', ['watch']);
 
   grunt.event.on('watch', function (action, filepath, target) {
@@ -128,10 +128,11 @@ module.exports = function (grunt) {
   });
 };
 
+// https://www.npmjs.com/package/browserify-ng-html2js
+// http://nicholasjohnson.com/blog/building-angular-with-browserify/
 // Create a concatenated file with libraries and use them as globals to avoid having to be importing them every time
 // https://github.com/viart/http-rewrite-middleware
 //   https://stackoverflow.com/questions/16569841/reloading-the-page-gives-wrong-get-request-with-angularjs-html5-mode/17164877#17164877
-// https://www.youtube.com/watch?v=5e6BFaRGRzM&t=23m  <-- JavaScript Modules; RequireJS vs Browserify
 // https://www.youtube.com/watch?v=4FE-3jkD0Ag&t=29m05s  <-- Building ES6 Browser Apps w/ Grunt and Babel
 
 // https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
