@@ -8,6 +8,7 @@
  */
 class HomeController {
   constructor() {
+    this.blabla = 'bleble';
   }
 }
 

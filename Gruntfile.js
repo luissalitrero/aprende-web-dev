@@ -145,4 +145,3 @@ module.exports = function (grunt) {
 
 // TEMPLATES:
 // https://startbootstrap.com/template-overviews/sb-admin/
-// https://startbootstrap.com/template-overviews/resume/
