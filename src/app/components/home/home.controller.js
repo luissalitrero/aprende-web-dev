@@ -6,9 +6,9 @@
  * @param {} $state - .
  * @description .
  */
-class MainAppController {
+class HomeController {
   constructor() {
   }
 }
 
-export default MainAppController;
+export default HomeController;

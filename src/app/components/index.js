@@ -1,11 +1,10 @@
 'use strict';
 
-// import mainAppModule from './main-app/main.app.module.js';
-import mainAppComponent from './main-app/main.app.component.js';
+import homeComponent from './home/home.component.js';
 
 let componentsModule = angular
   .module('lwd.components', [
-    mainAppComponent
+    homeComponent
   ])
   .name;
 
