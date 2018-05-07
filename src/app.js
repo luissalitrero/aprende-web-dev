@@ -9,7 +9,7 @@ import AppRun from './app/configs/run.js';
 import AppComponents from './app/components';
 
 angular
-  .module('lwda', [
+  .module('lwd', [
     // uiRouter,
     'ui.router',
     AppComponents

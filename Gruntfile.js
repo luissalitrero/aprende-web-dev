@@ -142,3 +142,7 @@ module.exports = function (grunt) {
 // https://www.npmjs.com/package/grunt-mustache-generate  <-- generate html pages and partials for reuse client side.
 // https://mozilla.github.io/nunjucks/  <-- templating engine for JavaScript.
 // https://github.com/pugjs/pug  <-- Pug is a high-performance template engine.
+
+// TEMPLATES:
+// https://startbootstrap.com/template-overviews/sb-admin/
+// https://startbootstrap.com/template-overviews/resume/

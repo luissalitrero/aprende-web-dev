@@ -17,7 +17,7 @@ function appConfig($locationProvider, $urlRouterProvider, $qProvider, $stateProv
   // $qProvider.errorOnUnhandledRejections(false);
 
   $stateProvider
-    .state('lwda', {
+    .state('lwd', {
       abstract: true,
       url: ''
     });

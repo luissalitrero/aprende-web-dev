@@ -11,12 +11,12 @@ let mainAppComponentDef = {
 };
 
 let mainAppComponent = angular
-  .module('lwda.components.mainApp', ['ui.router'])
+  .module('lwd.components.mainApp', ['ui.router'])
   .config(function ($stateProvider) {
     'ng-inject';
   
     $stateProvider
-      .state('lwda.index', {
+      .state('lwd.index', {
         url: '/inicio',
         template: '<main-app-component></main-app-component>',
         controller: function () {

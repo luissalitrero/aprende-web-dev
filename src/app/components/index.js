@@ -4,7 +4,7 @@
 import mainAppComponent from './main-app/main.app.component.js';
 
 let componentsModule = angular
-  .module('lwda.components', [
+  .module('lwd.components', [
     mainAppComponent
   ])
   .name;
