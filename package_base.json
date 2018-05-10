@@ -31,7 +31,7 @@
     "angular-ui-calendar": "1.0.2",  // A complete AngularJS directive for the Arshaw FullCalendar.
     "angular-xeditable": "0.8.1",  // Edit in place for AngularJS
     "async": "2.6.0",  // Async is a utility module which provides straight-forward, powerful functions for working with asynchronous JS.
-    "autoprefixer": "7.2.3",  // adds vendor prefixes, using data from "Can I Use". https://github.com/postcss/postcss
+    "autoprefixer": "7.2.3",  // Adds vendor prefixes, using data from "Can I Use". https://github.com/postcss/postcss
     "awesome-bootstrap-checkbox": "1.0.0",  // Font Awesome Bootstrap Checkboxes & Radios plugin. CSS to make inputs look prettier. No JS!
     "aws-sdk": "2.177.0",  // The official AWS SDK for JavaScript, available for browsers and mobile devices, or Node.js backends
     "babelify": "8.0.0",  // For use with browserify. In Babel 6.0.0 there are no plugins included by default. You must include some presets and/or plugins.
@@ -57,7 +57,6 @@
     // https://github.com/browserify/browserify#usage
     // https://github.com/browserify/browserify-handbook#development
     // https://www.npmjs.com/package/grunt-browserify
-    "browser-sync": "2.23.6", // Keep multiple browsers & devices in sync when building websites.
     "bunyan": "1.8.12",  // a simple and fast JSON logging library for node.js services.
     "busboy": "0.2.14",  // A node.js module for parsing incoming HTML form data.
     "cache-manager": "2.6.0",  // Cache module for nodejs; allows wrapping of functions in cache, tiered caches, and a consistent interface.
@@ -97,7 +96,6 @@
     "grunt-contrib-clean": "1.1.0",  // Clean files and folders.
     "grunt-contrib-compress": "1.4.3",  // Compress files and folders.
     "grunt-contrib-concat": "1.0.1",  // Concatenate files.
-    "grunt-contrib-connect": "1.0.2",  // Start a connect web server.
     "grunt-contrib-copy": "1.0.0",  // Copy files and folders.
     "grunt-contrib-cssmin": "2.2.1",  // Minify CSS.
     "grunt-contrib-htmlmin": "2.4.0",  // Minify HTML.
@@ -108,9 +106,7 @@
     "grunt-contrib-watch": "1.0.0",  // Run predefined tasks whenever watched file patterns are added, changed or deleted.
     "grunt-env": "0.4.4",  // Specify an ENV configuration as a task.
     "grunt-execute": "0.2.2",  // Grunt plugin for executing shell commands.
-    "grunt-express-server": "0.5.3",  // Simple grunt task for running an Express server that works great with LiveReload + Watch/Regarde.
     "grunt-html-build": "0.7.1",  // HTML Builder - Appends scripts and styles, Removes debug parts, append html partials, Template options.
-    "grunt-http-server": "2.0.0",  // HTTP server to serve your static files that you can hook in your grunt build.
     "grunt-jasmine-npm": "0.2.1",  // Run jasmine tests with the official runner. Use jasmine-reporters or jasmine-spec-reporter for reporting.
     "grunt-jquery-builder": "0.2.1",  // Creates custom builds of jQuery using the jQuery Builder tool.
     "grunt-karma": "2.0.0",  // Grunt plugin for Karma, Spectacular Test Runner for JavaScript.
@@ -122,7 +118,6 @@
     "grunt-open": "0.2.3",  // Open urls and files from a grunt task.
     "grunt-postcss": "0.9.0",  // Apply several post-processors to your CSS using PostCSS.
     "grunt-protractor-runner": "5.0.0",  // A Grunt plugin for running Protractor runner.
-    "grunt-serve": "0.1.6",  // Starts a http server that can be called to run Grunt tasks and serve files.
     "grunt-shell": "2.1.0",  // Run shell commands.
     "grunt-svgmin": "5.0.0",  // Minify SVG using SVGO.
     "grunt-usemin": "3.1.1",  // Replaces references from non-optimized scripts/stylesheets/etc. for optimized versions in a set of HTML/templates/views.
@@ -139,7 +134,6 @@
     "angular-nicescroll": "0.0.0",  // Smooth scroll from "jquery.nicescroll": "3.7.6".
     "jsonwebtoken": "8.1.0",  // Implementation of JSON Web Tokens; developed against draft-ietf-oauth-json-web-token-08; It uses node-jws.
     "jstz": "2.0.0",  // Timezone detection for JavaScript.
-"live-server": "", // a little development server with live reload capability. Use it for hacking your HTML/JavaScript/CSS files, but not for deploying the final site.
     "load-grunt-tasks": "3.5.2",  // Load multiple grunt tasks using globbing patterns, to avoid using 'grunt.loadNpmTasks'.
     "lodash": "4.17.4",  // Lodash
     "memorystore": "1.6.0",  // A session store implementation for Express using lru-cache.
@@ -172,7 +166,7 @@
     "pg": "7.4.0",  // Non-blocking PostgreSQL client for node.js. Pure JavaScript and optional native libpq bindings.
     "pg-hstore": "2.3.2",  // A node package for serializing and deserializing JSON data to hstore format.
     "phantomjs-prebuilt": "2.1.16",  // Headless webkit with JS API.
-"postbuild": "", // A command line utility to inject css and js files into an html file or to remove code based on conditions.
+    "postbuild": "", // A command line utility to inject css and js files into an html file or to remove code based on conditions.
     "prequest": "1.0.0",  // Promisified HTTP requests with bluebird and request modules.
     "random-js": "1.0.8",  // A mathematically correct random number generator library for JavaScript.
     "redis": "2.8.0",  // Redis client for node.js. It supports all Redis commands and focuses on high performance.
@@ -188,8 +182,8 @@
     "simple-schema": "1.1.0",  // Simple object validation framework with no dependencies.
     "sinon": "4.1.3",  // Standalone and test framework agnostic JS test spies, stubs and mocks.
     "source-map-support": "0.5.0",  // provides source map support for stack traces via the V8 stack trace API.
-"sprity": "", // A modular image sprite generator.
-"sprity-cli": "", // Command line interface for sprity.
+    "sprity": "", // A modular image sprite generator.
+    "sprity-cli": "", // Command line interface for sprity.
     "squel": "5.12.0",  // A flexible and powerful SQL query string builder for Javascript.
     "supertest": "3.0.0",  // HTTP assertions made easy via superagent.
     "supertest-session": "3.1.0",  // Session wrapper around supertest.
@@ -206,7 +200,17 @@
     "wkhtmltox": "1.0.10",  // Provide access to wkhtmltopdf/wkhtmltoimage, a package with utilities for rendering HTML into various formats.
     "xlsx": "0.11.16",  // Parser/writer for various spreadsheet formats. Pure-JS cleanroom implementation from official specs/related docs/test files.
     "xml2js": "0.4.19",  // Simple XML to JavaScript object converter. It supports bi-directional conversion. Uses sax-js and xmlbuilder-js.
-    "xmlbuilder": "9.0.4"  // An XML builder for node.js similar to java-xmlbuilder.
+    "xmlbuilder": "9.0.4",  // An XML builder for node.js similar to java-xmlbuilder.
+
+    /*
+     * Web servers:
+     */
+    "browser-sync": "2.23.6", // Web server.
+    "grunt-contrib-connect": "1.0.2",  // Web server.
+    "grunt-express-server": "0.5.3",  // Web server, works great with LiveReload + Watch/Regarde.
+    "grunt-http-server": "2.0.0",  // Web server, to serve static files that you can hook in your grunt build.
+    "grunt-serve": "0.1.6",  // Web server, can be called to run Grunt tasks and serve files.
+    "live-server": "", // Web server, with live reload capability. Use it for hacking your HTML/JavaScript/CSS files, but not for deploying the final site.
   },
   "engines": {
     "node": "v6.11.3",

@@ -112,15 +112,49 @@ module.exports = function (grunt) {
         }
       }
     },
+    less: {
+      dev: {
+        options: {
+          compress: false,
+          strictImports: true,
+          strictMath: false,
+          strictUnits: false,
+          // dumpLineNumbers: 'all',
+          sourceMap: true,
+          plugins: [
+            new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]}),
+            // new (require('less-plugin-clean-css'))(cleanCssOptions)
+          ],
+        },
+        files: {'dist/css/styles.css': 'src/less/main.less'},
+      },
+      // prod: {
+      //   options: {
+      //     compress: true,
+      //     strictImports: false,
+      //     strictMath: true,
+      //     strictUnits: true,
+      //     dumpLineNumbers: 'all',
+      //     sourceMap: true,
+      //     plugins: [
+      //       new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]}),
+      //       // new (require('less-plugin-clean-css'))(cleanCssOptions)
+      //     ],
+      //   },
+      //   files: {'dist/css/styles.css': 'src/less/main.less'},
+      // }
+    },
     watch: {
       src: {files: ['src/**/*.js'], tasks: ['jschanged']},
       html: {files: ['src/**/*.html'], tasks: ['htmlchanged']},
+      less: {files: ['src/**/*.less'], tasks: ['lesschanged']},
     }
   });
 
-  grunt.registerTask('serve', ['clean', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'connect']);
+  grunt.registerTask('serve', ['clean', 'less:dev', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'connect']);
   grunt.registerTask('jschanged', ['babel:dev', 'browserify:dev', 'htmlbuild:dev']);
-  grunt.registerTask('htmlchanged', ['copy']);
+  grunt.registerTask('htmlchanged', ['copy', 'htmlbuild:dev']);
+  grunt.registerTask('lesschanged', ['less:dev']);
   grunt.registerTask('watchFiles', ['watch']);
 
   grunt.event.on('watch', function (action, filepath, target) {
