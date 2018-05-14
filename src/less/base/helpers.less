@@ -1,34 +1,43 @@
 /* Utilidades responsivas y otras */
-// Clases para quitar propiedades selectivamente
+/*
+ * Clases para quitar propiedades selectivamente.
+ */
 .removers(@props...) {
   .removers-def(@prop, @suffix) {
-    .no-@{prop}-@{suffix} { border: 0 !important; }
-    .no-@{prop}-top-@{suffix} { border-top: 0 !important; }
-    .no-@{prop}-right-@{suffix} { border-right: 0 !important; }
-    .no-@{prop}-bottom-@{suffix} { border-bottom: 0 !important; }
-    .no-@{prop}-left-@{suffix} { border-left: 0 !important; }
+    & when not (@prop = background) and not (@prop = min-height) and not (@prop = float) and not (@prop = pointer-events) and not (@prop = border-radius) {
+      .no-@{prop}-@{suffix} { border: 0 !important; }
+      .no-@{prop}-top-@{suffix} { border-top: 0 !important; }
+      .no-@{prop}-right-@{suffix} { border-right: 0 !important; }
+      .no-@{prop}-bottom-@{suffix} { border-bottom: 0 !important; }
+      .no-@{prop}-left-@{suffix} { border-left: 0 !important; }
+    }
+    & when (@prop = border-radius) {
+      .no-border-radius-@{suffix} { border-radius: 0 !important; }
+      .no-border-top-left-radius-@{suffix} { border-top-left-radius: 0 !important; }
+      .no-border-top-right-radius-@{suffix} { border-top-right-radius: 0 !important; }
+      .no-border-bottom-left-radius-@{suffix} { border-bottom-left-radius: 0 !important; }
+      .no-border-bottom-right-radius-@{suffix} { border-bottom-right-radius: 0 !important; }
+    }
+    & when (@prop = background)     { .no-@{prop}-color-@{suffix} { background-color: transparent !important; } }
+    & when (@prop = min-height)     { .no-@{prop}-@{suffix} { min-height: auto !important; } }
+    & when (@prop = float)          { .no-@{prop}-@{suffix} { float: none !important; } }
+    & when (@prop = pointer-events) { .no-@{prop}-@{suffix} { pointer-events: none !important; } }
   }
   .loop-args(@argCount) when (@argCount > 0) {
     @prop: extract(@props, @argCount);
     .removers-def(@prop, all);
-    @media only screen and (max-width: 767px) {
-      .removers-def(@prop, xs);
-    }
-    @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .removers-def(@prop, sm);
-    }
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      .removers-def(@prop, md);
-    }
-    @media only screen and (min-width: 1200px) {
-      .removers-def(@prop, lg);
-    }
+    @media only screen and (max-width: 767px)                         { .removers-def(@prop, xs); }
+    @media only screen and (min-width: 768px) and (max-width: 991px)  { .removers-def(@prop, sm); }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) { .removers-def(@prop, md); }
+    @media only screen and (min-width: 1200px)                        { .removers-def(@prop, lg); }
     .loop-args(@argCount - 1);
   }
   .loop-args(length(@props));
 }
-.removers(margin, padding, border);
-// Clases para crear espacios y márgenes superior e inferior
+.removers(margin, padding, border, background, border-radius, float, pointer-events);
+/*
+ * Clases para crear espacios verticales y márgenes superior e inferior.
+ */
 .spacers(@margin) when (@margin >= 0) {
   .spacer-def(@margin, @suffix) {
     .spacer-@{margin}-@{suffix} {
@@ -43,22 +52,16 @@
     }
   }
   .spacer-def(@margin, all);
-  @media only screen and (max-width: 767px) {
-    .spacer-def(@margin, xs);
-  }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .spacer-def(@margin, sm);
-  }
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .spacer-def(@margin, md);
-  }
-  @media only screen and (min-width: 1200px) {
-    .spacer-def(@margin, lg);
-  }
+  @media only screen and (max-width: 767px)                         { .spacer-def(@margin, xs); }
+  @media only screen and (min-width: 768px) and (max-width: 991px)  { .spacer-def(@margin, sm); }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) { .spacer-def(@margin, md); }
+  @media only screen and (min-width: 1200px)                        { .spacer-def(@margin, lg); }
   .spacers(@margin - 5);
 }
 .spacers(50);
-// Clases para atributos de la fuente
+/*
+ * Clases para atributos de la fuente.
+ */
 .font-attrs(@props...) {
   .font-attrs-def(@prop, @suffix) {
     .font-vals(@vals...) {
@@ -69,34 +72,24 @@
       }
       .loop-vals(length(@vals));
     }
-    & when (@prop = weight) {
-      .font-vals(300 400 500 700 800);
-    }
-    & when (@prop = size) {
-      .font-vals(10 15 20 25 30);
-    }
+    & when (@prop = weight) { .font-vals(300 400 500 700 800); }
+    & when (@prop = size)   { .font-vals(10 15 20 25 30); }
   }
   .loop-args(@argCount) when (@argCount > 0) {
     @prop: extract(@props, @argCount);
     .font-attrs-def(@prop, all);
-    @media only screen and (max-width: 767px) {
-      .font-attrs-def(@prop, xs);
-    }
-    @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .font-attrs-def(@prop, sm);
-    }
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      .font-attrs-def(@prop, md);
-    }
-    @media only screen and (min-width: 1200px) {
-      .font-attrs-def(@prop, lg);
-    }
+    @media only screen and (max-width: 767px)                         { .font-attrs-def(@prop, xs); }
+    @media only screen and (min-width: 768px) and (max-width: 991px)  { .font-attrs-def(@prop, sm); }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) { .font-attrs-def(@prop, md); }
+    @media only screen and (min-width: 1200px)                        { .font-attrs-def(@prop, lg); }
     .loop-args(@argCount - 1);
   }
   .loop-args(length(@props));
 }
 .font-attrs(weight, size);
-// Clases para colores de fondo
+/*
+ * Clases para colores de fondo.
+ */
 .bg-variants(@vals...) {
   .loop-vals(@valsCount) when (@valsCount > 0) {
     @val: extract(@vals, @valsCount);
@@ -109,17 +102,25 @@
   }
   .loop-vals(length(@vals));
 }
-.bg-variants(danger #fae0e0 default #fae0e0 disabled #fae0e0 info #e7f4fb success #ebf7ee transparent transparent warning #faf7d6 white @white);
-.text-danger { color: #bf1c1c !important; }
-.text-default { color: #e9ecf0 !important; }
-.text-disabled { color: #959ba9 !important; }
-.text-info { color: #bf1c1c !important; }
-.text-success { color: #40a35c !important; }
-.text-transparent { color: transparent !important; }
-.text-warning { color: #faf7d6 !important; }
-.text-white { color: @white !important; }
-.text-underlined { text-decoration: underline !important; }
-// Clases para colores de bordes
+.bg-variants(@colorsList);
+/*
+ * Clases para colores de texto.
+ */
+.text-variants(@vals...) {
+  .loop-vals(@valsCount) when (@valsCount > 0) {
+    @val: extract(@vals, @valsCount);
+    @name: extract(@vals, @valsCount - 1);
+    .text-@{name} {
+      background-color: @val !important;
+    }
+    .loop-vals(@valsCount - 2);
+  }
+  .loop-vals(length(@vals));
+}
+.text-variants(@colorsList);
+/*
+ * Clases para colores de bordes.
+ */
 .border-variants(@vals...) {
   .border-inner-def() {
     .table {
@@ -146,10 +147,15 @@
   }
   .loop-vals(length(@vals));
 }
-.border-variants(danger #fae0e0 default #fae0e0 disabled #fae0e0 info #e7f4fb success #ebf7ee transparent transparent warning #faf7d6 white @white);
-// Clases varias
+.border-variants(@colorsList);
+/*
+ * Clases varias.
+ */
 .various-classes() {
   .various-classes-def(@suffix) {
+    .btn-sm-keep-height-@{suffix} { padding-bottom: 8px !important; padding-top: 8px !important; }
+    .cursor-default-@{suffix} { cursor: default !important; }
+    .cursor-pointer-@{suffix} { cursor: pointer !important; }
     .display-block-@{suffix} { display: block !important; }
     .display-inline-@{suffix} { display: inline !important; }
     .display-inline-block-@{suffix} { display: inline-block !important; }
@@ -158,32 +164,42 @@
     .display-none-@{suffix}.display-block-@{suffix} { display: block !important; }
     .expand-full-width-@{suffix} { width: 100% !important; }
     .expand-half-width-@{suffix} { width: 50% !important; }
+    .margin-auto-@{suffix} { margin: auto !important; }
+    .overflow-auto-@{suffix} { overflow: auto !important; }
+    .overflow-auto-x-@{suffix} { overflow-x: auto !important; }
+    .overflow-auto-y-@{suffix} { overflow-y: auto !important; }
+    .overflow-hidden-@{suffix} { overflow: hidden !important; }
+    .overflow-scroll-@{suffix} { overflow: scroll !important; }
+    .overflow-scroll-x-@{suffix} { overflow-x: scroll !important; }
+    .overflow-scroll-y-@{suffix} { overflow-y: scroll !important; }
+    .overflow-visible-@{suffix} { overflow: visible !important; }
+    .padding-xthin-@{suffix} { padding: 5px !important; }
+    .padding-thin-@{suffix} { padding: 10px !important; }
+    .padding-thick-@{suffix} { padding: 15px !important; }
+    .padding-xthick-@{suffix} { padding: 20px !important; }
+    .position-fixed-@{suffix} { position: fixed !important; }
+    .position-relative-@{suffix} { position: relative !important; }
+    .position-absolute-@{suffix} { position: absolute !important; }
+    .position-absolute-center-@{suffix} { left: 40%; position: absolute !important; top: 0; }
+    .position-absolute-left-@{suffix} { left: 0; position: absolute !important; top: 0; }
+    .position-absolute-right-@{suffix} { position: absolute !important; right: 0; top: 0; }
+    .standard-line-height-@{suffix} { line-height: 34px; }
+    .text-underlined-@{suffix} { text-decoration: underline !important; }
     .text-center-@{suffix} { text-align: center !important; }
     .text-left-@{suffix} { text-align: left !important; }
     .text-right-@{suffix} { text-align: right !important; }
+    .width-auto-@{suffix} { width: auto !important; }
   }
   .various-classes-def(all);
-  @media only screen and (max-width: 767px) {
-    .various-classes-def(xs);
-  }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .various-classes-def(sm);
-  }
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .various-classes-def(md);
-  }
-  @media only screen and (min-width: 1200px) {
-    .various-classes-def(lg);
-  }
+  @media only screen and (max-width: 767px)                         { .various-classes-def(xs); }
+  @media only screen and (min-width: 768px) and (max-width: 991px)  { .various-classes-def(sm); }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) { .various-classes-def(md); }
+  @media only screen and (min-width: 1200px)                        { .various-classes-def(lg); }
 }
 .various-classes();
 .box-not-too-long { white-space: pre-line !important; word-wrap: break-word !important; }
 .btn-link { padding: 0 !important; vertical-align: inherit !important; }
-.btn-sm-keep-height { padding-bottom: 8px !important; padding-top: 8px !important; }
-.cursor-default { cursor: default !important; }
-.cursor-pointer { cursor: pointer !important; }
 .label-keep-height { padding-bottom: 1px; padding-top: 8px; }
-.margin-auto { margin: auto !important; }
 .max-height-box {
 	border: 1px solid #7dcc93;
 	border-right-width: 2px;
@@ -191,51 +207,20 @@
 	overflow-y: scroll;
 	padding: 5px 0 5px 30px;
 }
-.no-background-color { background-color: transparent; }
-.no-border-radius { border-radius: 0; }
-.no-border-top-radius { border-top-left-radius: 0; border-top-right-radius: 0; }
-.no-border-bottom-radius { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-.no-border-left-radius { border-top-left-radius: 0; border-bottom-left-radius: 0; }
-.no-border-right-radius { border-top-right-radius: 0; border-bottom-right-radius: 0; }
-.no-border-top-left-radius { border-top-left-radius: 0; }
-.no-border-top-right-radius { border-top-right-radius: 0; }
-.no-border-bottom-left-radius { border-bottom-left-radius: 0; }
-.no-border-bottom-right-radius { border-bottom-right-radius: 0; }
-.no-min-height { min-height: auto !important; }
-.no-float { float: none !important; }
-.no-mouse-interactions { pointer-events: none !important; }
-.overflow-auto { overflow: auto !important; }
-.overflow-auto-x { overflow-x: auto !important; }
-.overflow-auto-y { overflow-y: auto !important; }
-.overflow-hidden { overflow: hidden !important; }
-.overflow-scroll { overflow: scroll !important; }
-.overflow-scroll-x { overflow-x: scroll !important; }
-.overflow-scroll-y { overflow-y: scroll !important; }
-.overflow-visible { overflow: visible !important; }
-.padding-xthin { padding: 5px; }
-.padding-thin { padding: 10px; }
-.padding-thick { padding: 15px; }
-.padding-xthick { padding: 20px; }
 .pipe-divider {
 	color: #4697ce;
 	float: right;
 	font-size: 17px;
 	margin: 4px 7px 0 10px;
 }
-.position-fixed { position: fixed !important; }
-.position-relative { position: relative !important; }
-.position-absolute { position: absolute !important; }
-.position-absolute-center { left: 40%; position: absolute !important; top: 0; }
-.position-absolute-left { left: 0; position: absolute !important; top: 0; }
-.position-absolute-right { position: absolute !important; right: 0; top: 0; }
-.standard-line-height { line-height: 34px; }
 .tooltip-max-width .tooltip { max-width: 200px; }
-tr.bg-warning { cursor: default; }
-td.v-align-bottom,
-.v-align-bottom { vertical-align: bottom !important; }
-td.v-align-middle,
-.v-align-middle { vertical-align: middle !important; }
-td.v-align-top,
-.v-align-top { vertical-align: top !important; }
-.width-auto { width: auto !important; }
+.v-align-bottom,
+td.v-align-bottom { vertical-align: bottom !important; }
+.v-align-middle,
+td.v-align-middle { vertical-align: middle !important; }
+.v-align-top,
+td.v-align-top { vertical-align: top !important; }
+.example2 {
+  user-select: none;
+}
 /* FIN - Utilidades responsivas y otras */
