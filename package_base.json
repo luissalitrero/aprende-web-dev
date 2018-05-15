@@ -80,7 +80,10 @@
     "etag": "1.8.1",  // This module generates HTTP ETags (as defined in RFC 7232) for use in HTTP responses.
     "excel-export": "0.5.1",  // A simple node.js module for exporting data set to Excel xlsx file.
     "faker": "4.1.0",  // Generate massive amounts of fake data in the browser and node.js
-    "font-awesome": "4.7.0",  // Font Awesome is a full suite of 675 pictographic icons for easy scalable vector graphics on websites.
+    "font-awesome": "4.7.0",
+    // Font Awesome is a full suite of 675 pictographic icons for easy scalable vector graphics on websites.
+    // https://fontawesome.com/icons?d=gallery
+    // http://astronautweb.co/snippet/font-awesome/
     "fs-extra": "5.0.0",  // Adds file system methods that aren't included in the native fs module; adds promise support to the fs methods.
     "generic-pool": "3.4.0",  // Resource pool with Promise based API. Used to reuse/throttle usage of expensive resources e.g. DB connections.
     "glob": "7.1.2",  // Match files using the patterns the shell uses, like stars and stuff.
