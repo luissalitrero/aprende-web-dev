@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc controller
- * @name quo.controller:CompaniasSaldosInicialesMenuController
+ * @name lwd.controller:CompaniasSaldosInicialesMenuController
  * @param {} $state - .
  * @description .
  */

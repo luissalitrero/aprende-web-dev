@@ -4,6 +4,17 @@
  */
 .removers(@props...) {
   .removers-def(@prop, @suffix) {
+    & when (@prop = background)     { .no-@{prop}-color-@{suffix} { background-color: transparent !important; } }
+    & when (@prop = min-height)     { .no-@{prop}-@{suffix} { min-height: auto !important; } }
+    & when (@prop = float)          { .no-@{prop}-@{suffix} { float: none !important; } }
+    & when (@prop = pointer-events) { .no-@{prop}-@{suffix} { pointer-events: none !important; } }
+    & when (@prop = border-radius)  {
+      .no-border-radius-@{suffix} { border-radius: 0 !important; }
+      .no-border-top-left-radius-@{suffix} { border-top-left-radius: 0 !important; }
+      .no-border-top-right-radius-@{suffix} { border-top-right-radius: 0 !important; }
+      .no-border-bottom-left-radius-@{suffix} { border-bottom-left-radius: 0 !important; }
+      .no-border-bottom-right-radius-@{suffix} { border-bottom-right-radius: 0 !important; }
+    }
     & when not (@prop = background) and not (@prop = min-height) and not (@prop = float) and not (@prop = pointer-events) and not (@prop = border-radius) {
       .no-@{prop}-@{suffix} { border: 0 !important; }
       .no-@{prop}-top-@{suffix} { border-top: 0 !important; }
@@ -11,17 +22,6 @@
       .no-@{prop}-bottom-@{suffix} { border-bottom: 0 !important; }
       .no-@{prop}-left-@{suffix} { border-left: 0 !important; }
     }
-    & when (@prop = border-radius) {
-      .no-border-radius-@{suffix} { border-radius: 0 !important; }
-      .no-border-top-left-radius-@{suffix} { border-top-left-radius: 0 !important; }
-      .no-border-top-right-radius-@{suffix} { border-top-right-radius: 0 !important; }
-      .no-border-bottom-left-radius-@{suffix} { border-bottom-left-radius: 0 !important; }
-      .no-border-bottom-right-radius-@{suffix} { border-bottom-right-radius: 0 !important; }
-    }
-    & when (@prop = background)     { .no-@{prop}-color-@{suffix} { background-color: transparent !important; } }
-    & when (@prop = min-height)     { .no-@{prop}-@{suffix} { min-height: auto !important; } }
-    & when (@prop = float)          { .no-@{prop}-@{suffix} { float: none !important; } }
-    & when (@prop = pointer-events) { .no-@{prop}-@{suffix} { pointer-events: none !important; } }
   }
   .loop-args(@argCount) when (@argCount > 0) {
     @prop: extract(@props, @argCount);
@@ -102,7 +102,7 @@
   }
   .loop-vals(length(@vals));
 }
-.bg-variants(@colorsList);
+.bg-variants(@bgColorsList);
 /*
  * Clases para colores de texto.
  */
@@ -111,13 +111,13 @@
     @val: extract(@vals, @valsCount);
     @name: extract(@vals, @valsCount - 1);
     .text-@{name} {
-      background-color: @val !important;
+      color: @val !important;
     }
     .loop-vals(@valsCount - 2);
   }
   .loop-vals(length(@vals));
 }
-.text-variants(@colorsList);
+.text-variants(@textColorsList);
 /*
  * Clases para colores de bordes.
  */
@@ -147,7 +147,7 @@
   }
   .loop-vals(length(@vals));
 }
-.border-variants(@colorsList);
+.border-variants(@borderColorsList);
 /*
  * Clases varias.
  */

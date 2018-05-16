@@ -18,10 +18,7 @@ let homeComponent = angular
     $stateProvider
       .state('lwd.index', {
         url: '/inicio',
-        template: '<home-component></home-component>',
-        controller: function () {
-          
-        }
+        template: '<home-component></home-component>'
       });
   })
   .component('homeComponent', homeComponentDef)
