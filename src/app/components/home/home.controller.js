@@ -8,6 +8,8 @@
  */
 class HomeController {
   constructor() {
+    'ngInject';
+
     this.blabla = 'bleble';
   }
 }

@@ -8,6 +8,8 @@
  */
 class HtmlController {
   constructor() {
+    'ngInject';
+
     this.hello = 'I am the HTML course controller';
   }
 }
