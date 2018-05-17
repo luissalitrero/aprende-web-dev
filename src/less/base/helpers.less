@@ -16,11 +16,11 @@
       .no-border-bottom-right-radius-@{suffix} { border-bottom-right-radius: 0 !important; }
     }
     & when not (@prop = background) and not (@prop = min-height) and not (@prop = float) and not (@prop = pointer-events) and not (@prop = border-radius) {
-      .no-@{prop}-@{suffix} { border: 0 !important; }
-      .no-@{prop}-top-@{suffix} { border-top: 0 !important; }
-      .no-@{prop}-right-@{suffix} { border-right: 0 !important; }
-      .no-@{prop}-bottom-@{suffix} { border-bottom: 0 !important; }
-      .no-@{prop}-left-@{suffix} { border-left: 0 !important; }
+      .no-@{prop}-@{suffix} { @{prop}: 0 !important; }
+      .no-@{prop}-top-@{suffix} { @{prop}-top: 0 !important; }
+      .no-@{prop}-right-@{suffix} { @{prop}-right: 0 !important; }
+      .no-@{prop}-bottom-@{suffix} { @{prop}-bottom: 0 !important; }
+      .no-@{prop}-left-@{suffix} { @{prop}-left: 0 !important; }
     }
   }
   .loop-args(@argCount) when (@argCount > 0) {
@@ -34,7 +34,7 @@
   }
   .loop-args(length(@props));
 }
-.removers(margin, padding, border, background, border-radius, float, pointer-events);
+.removers(background, min-height, float, pointer-events, border-radius, margin, padding, border);
 /*
  * Clases para crear espacios verticales y márgenes superior e inferior.
  */
