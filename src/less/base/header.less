@@ -1,34 +1,74 @@
+.header-active-element() {
+  background-color: #8771a8;
+  border: 2px solid #6f5499;
+  color: @textWhite;
+}
 .header-container {
-  padding: 15px;
+  padding: 15px 15px 0;
   .navbar-default {
     background-color: #6f5499;
     border-color: #6f5499;
     min-height: 56px;
     .navbar-brand {
-      border: 2px solid @textTransparent;
+      border: 2px solid @borderTransparent;
       color: @textWhite;
       > li > a {
         color: #cdbfe3;
       }
     }
     .navbar-nav {
-      > li > a {
-        border: 2px solid @textTransparent;
-        color: #cdbfe3;
-      }
-      > li > a:focus,
-      > li > a:hover {
-        color: @textWhite;
+      > li {
+        > a,
+        > .dropdown-menu > li > a {
+          border: 2px solid @borderTransparent;
+          color: #cdbfe3;
+        }
+        > a:focus,
+        > a:hover {
+          color: @textWhite;
+        }
+        &.dropdown {
+          > a.dropdown-toggle.active,
+          > a.dropdown-toggle.active:focus,
+          > a.dropdown-toggle.active:hover {
+            .header-active-element();
+          }
+          .dropdown-menu {
+            background-color: #6f5499;
+            border-color: #6f5499;
+            border-top: 1px solid @textWhite;
+            > li {
+              > a {
+                border: 2px solid @borderTransparent;
+                color: #cdbfe3;
+                &:focus,
+                &:hover {
+                  border: 2px solid @borderTransparent;
+                  color: @textWhite;
+                }
+              }
+            }
+            > li > a:focus,
+            > li > a:hover {
+              background-color: @bgTransparent;
+              color: @textWhite;
+            }
+            > .active > a,
+            > .active > a:focus,
+            > .active > a:hover {
+              .header-active-element();
+            }
+          }
+        }
       }
       > .active > a {
         color: #6f5499;
       }
       > .active > a,
       > .active > a:focus,
-      > .active > a:hover {
-        background-color: #8771a8;
-        border: 2px solid #6f5499;
-        color: @textWhite;
+      > .active > a:hover,
+      > .open > a {
+        .header-active-element();
       }
     }
     .navbar-toggle {

@@ -16,7 +16,7 @@ let homeComponent = angular
     'ng-inject';
   
     $stateProvider
-      .state('lwd.index', {
+      .state('lwd.inicio', {
         url: '/inicio',
         template: '<home-component></home-component>'
       });

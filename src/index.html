@@ -26,12 +26,9 @@
   </head>
   <body>
     <header-component></header-component>
-    <main class="container-fluid">
+    <main class="main container-fluid">
       <div class="row">
-        <article class="col-xs-12 col-sm-9" role="main" ng-cloak ui-view></article>
-        <aside class="col-xs-12 col-sm-3" role="complementary">
-          Este será el menú lateral
-        </aside>
+        <ui-view ng-cloak></ui-view>
       </div>
     </main>
     <footer-component></footer-component>
