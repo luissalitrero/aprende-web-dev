@@ -3,6 +3,7 @@
   .navbar-default {
     background-color: #6f5499;
     border-color: #6f5499;
+    min-height: 56px;
     .navbar-brand {
       color: @textWhite;
       > li > a {
@@ -11,7 +12,12 @@
     }
     .navbar-nav {
       > li > a {
+        border: 2px solid transparent;
         color: #cdbfe3;
+      }
+      > li > a:focus,
+      > li > a:hover {
+        color: @textWhite;
       }
       > .active > a {
         color: #6f5499;
@@ -19,12 +25,19 @@
       > .active > a,
       > .active > a:focus,
       > .active > a:hover {
-        color: @textWhite;
         background-color: #8771a8;
+        border: 2px solid #6f5499;
+        color: @textWhite;
       }
     }
-    .navbar-toggle .icon-bar {
-      background-color: #dddddd;
+    .navbar-toggle {
+      &:focus,
+      &:hover {
+        background-color: #8771a8;
+      }
+      .icon-bar {
+        background-color: #dddddd;
+      }
     }
   }
 }
