@@ -12,6 +12,10 @@
     .navbar-brand {
       border: 2px solid @borderTransparent;
       color: @textWhite;
+      height: auto;
+      &.active {
+        .header-active-element()
+      }
       > li > a {
         color: #cdbfe3;
       }
@@ -37,6 +41,8 @@
             background-color: #6f5499;
             border-color: #6f5499;
             border-top: 1px solid @textWhite;
+            left: auto;
+            right: 0;
             > li {
               > a {
                 border: 2px solid @borderTransparent;

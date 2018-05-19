@@ -1,6 +1,6 @@
 <div class="header-container">
   <header class="navbar navbar-default">
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-menu-collapse"
                 aria-expanded="false">
@@ -13,7 +13,7 @@
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <nav class="collapse navbar-collapse" id="header-menu-collapse">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav float-right-sm float-right-md float-right-lg">
           <!-- <li class="active"><a href="#">HTML <span class="sr-only">(current)</span></a></li> -->
           <li ng-class="{active: HeaderCtrl.currentState === 'lwd.cursos.html'}">
             <a ui-sref="lwd.cursos.html">HTML</a>
@@ -29,6 +29,9 @@
           </li>
           <li ng-class="{active: HeaderCtrl.currentState === 'lwd.cursos.javascript'}">
             <a ui-sref="lwd.cursos.javascript">Javascript</a>
+          </li>
+          <li ng-class="{active: HeaderCtrl.currentState === 'lwd.cursos.jquery'}">
+            <a ui-sref="lwd.cursos.jquery">jQuery</a>
           </li>
           <li ng-class="{active: HeaderCtrl.currentState === 'lwd.cursos.angular'}">
             <a ui-sref="lwd.cursos.angular">Angular</a>

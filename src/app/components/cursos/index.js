@@ -9,6 +9,7 @@ import lessComponent       from './less/less.component.js';
 import gruntComponent      from './grunt/grunt.component.js';
 import postgresComponent   from './postgres/postgres.component.js';
 import sailsComponent      from './sails/sails.component.js';
+import jqueryComponent      from './jquery/jquery.component.js';
 
 let cursosModule = angular
   .module('lwd.components.cursos', [
@@ -20,7 +21,8 @@ let cursosModule = angular
     lessComponent,
     gruntComponent,
     postgresComponent,
-    sailsComponent
+    sailsComponent,
+    jqueryComponent
   ])
   .config(function ($stateProvider) {
     'ng-inject';
@@ -30,7 +32,7 @@ let cursosModule = angular
         abstract: true,
         url: '/cursos',
         template: `<article class="col-xs-12 col-sm-9" role="main">
-                     <ui-view class="course-section"></ui-view>
+                     <ui-view></ui-view>
                    </article>
                    <aside class="col-xs-12 col-sm-3" role="complementary">
                      Este será el menú lateral
