@@ -62,6 +62,7 @@ module.exports = function (grunt) {
           suffix: new Date().getTime(),
           data: {version: "0.1.0"}, // Data to pass to templates
           scripts: {bundle: ['dist/bundle.js']},
+          styles: {bundle: ['dist/css/styles.css']},
         }
       }
     },
@@ -83,12 +84,12 @@ module.exports = function (grunt) {
               options.base = [options.base];
             }
 
-            var directory = options.directory || options.base[options.base.length - 1];
-
             // options.base.forEach(function (base) {
             //   // Serve static files.
             //   middlewares.push(connect.static(base));
             // });
+
+            // var directory = options.directory || options.base[options.base.length - 1];
 
             // Make directory browse-able.
             // middlewares.push(connect.directory(directory));

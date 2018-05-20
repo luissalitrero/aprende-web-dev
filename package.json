@@ -38,7 +38,6 @@
     "browserify": "15.2.0",
     "grunt": "1.0.1",
     "grunt-angular-templates": "1.1.0",
-    "grunt-asset-injector": "0.1.0",
     "grunt-babel": "7.0.0",
     "grunt-browserify": "5.2.0",
     "grunt-cli": "1.2.0",
