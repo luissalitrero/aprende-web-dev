@@ -88,6 +88,8 @@ module.exports = function (grunt) {
             //   // Serve static files.
             //   middlewares.push(connect.static(base));
             // });
+            //https://www.npmjs.com/package/grunt-contrib-connect
+            //https://www.npmjs.com/package/serve-static
 
             // var directory = options.directory || options.base[options.base.length - 1];
 
