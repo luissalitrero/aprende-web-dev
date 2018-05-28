@@ -4,7 +4,9 @@ import HomeController from './home.controller.js';
 
 let homeComponentDef = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+    linkText: '@'
+  },
   templateUrl: './components/home/home.tpl.html',
   controller: HomeController,
   controllerAs: 'HomeCtrl'
@@ -18,7 +20,7 @@ let homeComponent = angular
     $stateProvider
       .state('lwd.inicio', {
         url: '/inicio',
-        template: '<home-component></home-component>'
+        template: '<home-component link-text="Ir al curso"></home-component>'
       });
   })
   .component('homeComponent', homeComponentDef)
