@@ -7,6 +7,8 @@
 import AppConfig from './app/configs/config.js';
 import AppRun from './app/configs/run.js';
 import AppComponents from './app/components';
+import ConstantsUtilities from './app/constants/utilities.js';
+import ConstantsArrays from './app/constants/arrays.js';
 
 angular
   .module('lwd', [
@@ -14,6 +16,7 @@ angular
     'ui.router',
     AppComponents
   ])
-  .constant('utilities', {})
+  .constant('utils', ConstantsUtilities)
+  .constant('arrays', ConstantsArrays)
   .config(AppConfig)
   .run(AppRun);

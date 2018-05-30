@@ -27,7 +27,8 @@
     "bootstrap": "3.3.7",
     "font-awesome": "4.7.0",
     "http-rewrite-middleware": "0.1.6",
-    "npm": "^5.7.1"
+    "npm": "5.7.1",
+    "serve-static": "1.13.2"
   },
   "devDependencies": {
     "autoprefixer": "8.5.0",

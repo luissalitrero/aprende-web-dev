@@ -26,7 +26,8 @@
   .loop-args(@argCount) when (@argCount > 0) {
     @prop: extract(@props, @argCount);
     .removers-def(@prop, all);
-    @media only screen and (max-width: 767px)                         { .removers-def(@prop, xs); }
+    @media only screen and (max-width: 479px)                         { .removers-def(@prop, xxs); }
+    @media only screen and (min-width: 480px) and (max-width: 767px)  { .removers-def(@prop, xs); }
     @media only screen and (min-width: 768px) and (max-width: 991px)  { .removers-def(@prop, sm); }
     @media only screen and (min-width: 992px) and (max-width: 1199px) { .removers-def(@prop, md); }
     @media only screen and (min-width: 1200px)                        { .removers-def(@prop, lg); }
@@ -52,7 +53,8 @@
     }
   }
   .spacer-def(@margin, all);
-  @media only screen and (max-width: 767px)                         { .spacer-def(@margin, xs); }
+  @media only screen and (max-width: 479px)                         { .spacer-def(@margin, xxs); }
+  @media only screen and (min-width: 480px) and (max-width: 767px)  { .spacer-def(@margin, xs); }
   @media only screen and (min-width: 768px) and (max-width: 991px)  { .spacer-def(@margin, sm); }
   @media only screen and (min-width: 992px) and (max-width: 1199px) { .spacer-def(@margin, md); }
   @media only screen and (min-width: 1200px)                        { .spacer-def(@margin, lg); }
@@ -78,7 +80,8 @@
   .loop-args(@argCount) when (@argCount > 0) {
     @prop: extract(@props, @argCount);
     .font-attrs-def(@prop, all);
-    @media only screen and (max-width: 767px)                         { .font-attrs-def(@prop, xs); }
+    @media only screen and (max-width: 479px)                         { .font-attrs-def(@prop, xxs); }
+    @media only screen and (min-width: 480px) and (max-width: 767px)  { .font-attrs-def(@prop, xs); }
     @media only screen and (min-width: 768px) and (max-width: 991px)  { .font-attrs-def(@prop, sm); }
     @media only screen and (min-width: 992px) and (max-width: 1199px) { .font-attrs-def(@prop, md); }
     @media only screen and (min-width: 1200px)                        { .font-attrs-def(@prop, lg); }
@@ -178,8 +181,9 @@
     .overflow-visible-@{suffix} { overflow: visible !important; }
     .padding-xthin-@{suffix} { padding: 5px !important; }
     .padding-thin-@{suffix} { padding: 10px !important; }
-    .padding-thick-@{suffix} { padding: 15px !important; }
-    .padding-xthick-@{suffix} { padding: 20px !important; }
+    .padding-normal-@{suffix} { padding: 15px !important; }
+    .padding-thick-@{suffix} { padding: 20px !important; }
+    .padding-xthick-@{suffix} { padding: 25px !important; }
     .position-fixed-@{suffix} { position: fixed !important; }
     .position-relative-@{suffix} { position: relative !important; }
     .position-absolute-@{suffix} { position: absolute !important; }
@@ -195,7 +199,8 @@
     .width-auto-@{suffix} { width: auto !important; }
   }
   .various-classes-def(all);
-  @media only screen and (max-width: 767px)                         { .various-classes-def(xs); }
+  @media only screen and (max-width: 479px)                         { .various-classes-def(xxs); }
+  @media only screen and (min-width: 480px) and (max-width: 767px)  { .various-classes-def(xs); }
   @media only screen and (min-width: 768px) and (max-width: 991px)  { .various-classes-def(sm); }
   @media only screen and (min-width: 992px) and (max-width: 1199px) { .various-classes-def(md); }
   @media only screen and (min-width: 1200px)                        { .various-classes-def(lg); }

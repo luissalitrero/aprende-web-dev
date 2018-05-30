@@ -1,13 +1,13 @@
 .header-active-element() {
-  background-color: #8771a8;
-  border: 2px solid #6f5499;
+  background-color: #4d9be0;
+  border: 2px solid @bgPrimary;
   color: @textWhite;
 }
 .header-container {
   padding: 15px 15px 0;
   .navbar-default {
-    background-color: #6f5499;
-    border-color: #6f5499;
+    background-color: @bgPrimary;
+    border-color: @bgPrimary;
     min-height: 56px;
     .navbar-brand {
       border: 2px solid @borderTransparent;
@@ -17,7 +17,7 @@
         .header-active-element()
       }
       > li > a {
-        color: #cdbfe3;
+        color: @textWhite;
       }
     }
     .navbar-nav {
@@ -25,7 +25,7 @@
         > a,
         > .dropdown-menu > li > a {
           border: 2px solid @borderTransparent;
-          color: #cdbfe3;
+          color: @textWhite;
         }
         > a:focus,
         > a:hover {
@@ -38,15 +38,15 @@
             .header-active-element();
           }
           .dropdown-menu {
-            background-color: #6f5499;
-            border-color: #6f5499;
+            background-color: @bgPrimary;
+            border-color: @bgPrimary;
             border-top: 1px solid @textWhite;
             left: auto;
             right: 0;
             > li {
               > a {
                 border: 2px solid @borderTransparent;
-                color: #cdbfe3;
+                color: @textWhite;
                 &:focus,
                 &:hover {
                   border: 2px solid @borderTransparent;
@@ -68,7 +68,7 @@
         }
       }
       > .active > a {
-        color: #6f5499;
+        color: @bgPrimary;
       }
       > .active > a,
       > .active > a:focus,
@@ -80,10 +80,10 @@
     .navbar-toggle {
       &:focus,
       &:hover {
-        background-color: #8771a8;
+        background-color: #4d9be0;
       }
       .icon-bar {
-        background-color: #dddddd;
+        background-color: @bgWhite;
       }
     }
   }

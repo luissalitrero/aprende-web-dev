@@ -90,6 +90,7 @@ module.exports = function (grunt) {
             // });
             //https://www.npmjs.com/package/grunt-contrib-connect
             //https://www.npmjs.com/package/serve-static
+            //https://searchenginewatch.com/2018/01/04/which-is-the-best-search-engine-for-finding-images/
 
             // var directory = options.directory || options.base[options.base.length - 1];
 
