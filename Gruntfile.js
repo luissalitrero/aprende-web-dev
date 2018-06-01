@@ -2,8 +2,8 @@ module.exports = function (grunt) {
   require("load-grunt-tasks")(grunt);
 
   let serverPort = 8080;
-  let baseDirectory = 'dist';
   let rewriteModule = require('http-rewrite-middleware');
+  let serveStatic = require('serve-static');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -22,6 +22,7 @@ module.exports = function (grunt) {
         files: [
           {expand: true, cwd: 'src/app/components', src: '**/*.html', dest: 'dist/components/'},
           {expand: true, cwd: 'src/app/directives', src: '**/*.html', dest: 'dist/directives/'},
+          {expand: true, cwd: 'src/images', src: '**/*', dest: 'dist/images/'},
         ],
       },
     },
@@ -69,7 +70,7 @@ module.exports = function (grunt) {
     connect: {
       server: {
         options: {
-          base: baseDirectory,
+          base: 'dist',
           debug: true,
           directory: null,
           keepalive: true,
@@ -84,34 +85,25 @@ module.exports = function (grunt) {
               options.base = [options.base];
             }
 
-            // options.base.forEach(function (base) {
-            //   // Serve static files.
-            //   middlewares.push(connect.static(base));
-            // });
+            // Serve static files.
+            middlewares.push(serveStatic('dist/images/'));
             //https://www.npmjs.com/package/grunt-contrib-connect
             //https://www.npmjs.com/package/serve-static
             //https://searchenginewatch.com/2018/01/04/which-is-the-best-search-engine-for-finding-images/
 
             // var directory = options.directory || options.base[options.base.length - 1];
-
             // Make directory browse-able.
             // middlewares.push(connect.directory(directory));
 
-            // middlewares.unshift(function (req, res, next) {
-            //   if (req.url !== '/hello/world') { return next(); }
-
-            //   res.end(`Hello world from port # ${options.port} !`);
-            // });
-
             return middlewares;
           },
-          "onCreateServer": function () {
+          onCreateServer: function () {
             grunt.log.writeln(`-----0-- Port and current working directory - CWD: ${serverPort} - ${process.cwd()}`);
           },
           open: {
             target: `http://local.aprendewebdev:${serverPort}`,
-            appName: 'open',
-            "callback": function() {} // called when the app has opened 
+            appName: 'lwd',
+            "callback": function() {} // called when the app has opened
           }
         }
       }
@@ -169,6 +161,7 @@ module.exports = function (grunt) {
 // https://mozilla.github.io/nunjucks/  <-- templating engine for JavaScript.
 // https://github.com/pugjs/pug  <-- Pug is a high-performance template engine.
 // http://astronautweb.co/snippet/font-awesome/
+// https://material.io/tools/icons/?style=baseline
 
 // TEMPLATES:
 // https://startbootstrap.com/template-overviews/sb-admin/

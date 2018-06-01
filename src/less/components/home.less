@@ -9,9 +9,26 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-color: @bgDefaultLight;
+      &.html5 { background-color: #E44D26; }
+      &.css3 { background-color: #379AD6; }
+      &.less { background-color: #1D365D; }
+      &.javascript { background-color: #F7DF1E; }
+      &.jquery { background-color: #0769AD; }
+      &.angularjs { background-color: #FFFFFF; }
       img {
-        width: 100%;
         height: 150px;
+        width: 150px;
+        // &.html5 {}
+        // &.css3 {}
+        &.less { height: 60px; margin-top: 45px; width: 135px; }
+        &.javascript {
+          height: 100px;
+          margin-right: 25%;
+          margin-top: 10px;
+          width: 100px;
+        }
+        &.jquery { height: 50px; margin-top: 50px; width: 184px; }
+        &.angularjs { height: 70px; margin-top: 40px; width: 250px; }
       }
       &.bootstrap-course {
         background-color: @bgBootstrap;
