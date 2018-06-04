@@ -36,7 +36,7 @@ let arrays = {
       logo: {src: 'images/logos/jquery-logo.png', alt: "Logo de jQuery", title: "Logo de jQuery", class: "jquery"},
       title: "jQuery"
     }, {
-      _id: "angular-course-id",
+      _id: "angularjs-course-id",
       description: "Conoce este poderoso framework, con el que crearás aplicaciones web modernas y poderosas.",
       link: {href: "lwd.cursos.angular", text: "", title: ""},
       logo: {src: 'images/logos/angularjs-logo.png', alt: "Logo de Angular", title: "Logo de Angular", class: "angularjs"},

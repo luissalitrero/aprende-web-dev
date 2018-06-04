@@ -3,18 +3,21 @@
     height: 325px;
     @media only screen and (min-width: 480px) and (max-width: 1199px)  { height: 350px; }
     @media only screen and (min-width: 1200px)  { height: 335px; }
+    &:hover {
+      box-shadow: 0 0 10px @borderPrimary;
+    }
     .thumbnail-image-container {
       width: 100%;
       height: 150px;
       background-repeat: no-repeat;
       background-size: contain;
       background-color: @bgDefaultLight;
-      &.html5 { background-color: #E44D26; }
-      &.css3 { background-color: #379AD6; }
-      &.less { background-color: #1D365D; }
-      &.javascript { background-color: #F7DF1E; }
-      &.jquery { background-color: #0769AD; }
-      &.angularjs { background-color: #FFFFFF; }
+      &.html5 { background-color: @bgHtml5; }
+      &.css3 { background-color: @bgCss3; }
+      &.less { background-color: @bgLess; }
+      &.javascript { background-color: @bgJavascript; }
+      &.jquery { background-color: @bgJquery; }
+      &.angularjs { background-color: @bgAngularjs; }
       img {
         height: 150px;
         width: 150px;
@@ -23,20 +26,20 @@
         &.less { height: 60px; margin-top: 45px; width: 135px; }
         &.javascript {
           height: 100px;
-          margin-right: 25%;
+          margin-right: 15px;
           margin-top: 10px;
           width: 100px;
         }
         &.jquery { height: 50px; margin-top: 50px; width: 184px; }
-        &.angularjs { height: 70px; margin-top: 40px; width: 250px; }
+        &.angularjs { height: 99px; margin-top: 40px; width: 93px; }
       }
       &.bootstrap-course {
         background-color: @bgBootstrap;
         .bootstrap-course-logo {
           background-color: @bgBootstrap;
-          border: 1px solid #cdbfe3;
+          border: 1px solid @borderBootstrap;
           border-radius: 15%;
-          color: #fff;
+          color: @textWhite;
           cursor: default;
           display: inline;
           font-size: 80px;
