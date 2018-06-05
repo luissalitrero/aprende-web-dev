@@ -69,13 +69,14 @@
     .font-vals(@vals...) {
       .loop-vals(@counter) when (@counter > 0) {
         @val: extract(@vals, @counter);
-        .font-@{prop}-@{val}-@{suffix} { font-weight: @val !important; }
+        & when (@val < 300) { .font-@{prop}-@{val}-@{suffix} { font-@{prop}: unit(@val, px) !important; } }
+        & when (@val > 299) { .font-@{prop}-@{val}-@{suffix} { font-@{prop}: @val !important; } }
         .loop-vals(@counter - 1);
       }
       .loop-vals(length(@vals));
     }
-    & when (@prop = weight) { .font-vals(300 400 500 700 800); }
-    & when (@prop = size)   { .font-vals(10 15 20 25 30); }
+    & when (@prop = size)   { .font-vals(10,12,14,15,20,25,30); }
+    & when (@prop = weight) { .font-vals(300 400 500 600 700 800); }
   }
   .loop-args(@argCount) when (@argCount > 0) {
     @prop: extract(@props, @argCount);
