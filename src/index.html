@@ -26,11 +26,13 @@
     </style>
   </head>
   <body>
-    <header-component></header-component>
-    <main class="main container-fluid">
-      <ui-view ng-cloak></ui-view>
-    </main>
-    <footer-component></footer-component>
+    <header class="header-container">
+      <header-component></header-component>
+    </header>
+    <main class="main container-fluid" ng-cloak ui-view></main>
+    <footer class="footer">
+      <footer-component></footer-component>
+    </footer>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>

@@ -5,6 +5,7 @@ import HeaderController from './header.controller.js';
 let headerComponentDef = {
   restrict: 'E',
   bindings: {},
+  replace: true,
   templateUrl: './components/header/header.tpl.html',
   controller: HeaderController,
   controllerAs: 'HeaderCtrl'

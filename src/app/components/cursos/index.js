@@ -31,12 +31,12 @@ let cursosModule = angular
       .state('lwd.cursos', {
         abstract: true,
         url: '/cursos',
-        template: `<article class="col-xs-12 col-sm-9" role="main">
-                     <ui-view></ui-view>
-                   </article>
-                   <aside class="col-xs-12 col-sm-3" role="complementary">
-                     Este será el menú lateral
-                   </aside>`
+        template: `<section class="col-xs-12 col-sm-9" role="main" ui-view></section>
+                   <article class="col-xs-12 col-sm-3" role="complementary">
+                     <aside>
+                       Este será el menú lateral
+                     </aside>
+                   </article>`
       });
   })
   .name;

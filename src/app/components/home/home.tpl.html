@@ -32,12 +32,12 @@
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
       <div class="col-xxs-12 col-xs-6 col-sm-4 col-lg-4 thumbnail-container text-center"
-          ng-repeat="course in HomeCtrl.courses track by $index">
+           ng-repeat="course in HomeCtrl.courses track by $index">
         <div class="thumbnail position-relative-all">
           <div class="thumbnail-image-container text-center {{course.logo.class}}"
-              ng-class="{'bootstrap-course': course._id === 'bootstrap-course-id'}">
+               ng-class="{'bootstrap-course': course._id === 'bootstrap-course-id'}">
             <img src="{{course.logo.src}}" alt="{{course.logo.alt}}" title="{{course.logo.title}}"
-                ng-if="course._id !== 'bootstrap-course-id'" class="{{course.logo.class}}" />
+                 ng-if="course._id !== 'bootstrap-course-id'" class="{{course.logo.class}}" />
             <span class="bootstrap-course-logo" title="{{course.logo.title}}"
                   ng-if="course._id === 'bootstrap-course-id'">
                 &nbsp;B&nbsp;

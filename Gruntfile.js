@@ -67,6 +67,8 @@ module.exports = function (grunt) {
         }
       }
     },
+    // https://github.com/gruntjs/grunt-contrib-connect
+    //   https://stackoverflow.com/questions/16569841/reloading-the-page-gives-wrong-get-request-with-angularjs-html5-mode/17164877#17164877
     connect: {
       server: {
         options: {
@@ -77,7 +79,18 @@ module.exports = function (grunt) {
           livereload: false,
           port: serverPort,
           middleware: function (connect, options, middlewares) {
+            // https://github.com/viart/http-rewrite-middleware
             middlewares.push(rewriteModule.getMiddleware([
+              // {from: '^/cursos/html$', to: '/cursos/html', redirect: 'temporary'},
+              // {from: '^/cursos/css$', to: '/cursos/css', redirect: 'temporary'},
+              // {from: '^/cursos/less$', to: '/cursos/less', redirect: 'temporary'},
+              // {from: '^/cursos/bootstrap$', to: '/cursos/bootstrap', redirect: 'temporary'},
+              // {from: '^/cursos/javascript$', to: '/cursos/javascript', redirect: 'temporary'},
+              // {from: '^/cursos/jquery$', to: '/cursos/jquery', redirect: 'temporary'},
+              // {from: '^/cursos/angularjs$', to: '/cursos/angularjs', redirect: 'temporary'},
+              // {from: '^/cursos/grunt$', to: '/cursos/grunt', redirect: 'temporary'},
+              // {from: '^/cursos/postgres$', to: '/cursos/postgres', redirect: 'temporary'},
+              // {from: '^/cursos/sails$', to: '/cursos/sails', redirect: 'temporary'},
               {from: '^/.*$', to: '/', redirect: 'permanent'},
             ]));
 
@@ -85,11 +98,8 @@ module.exports = function (grunt) {
               options.base = [options.base];
             }
 
-            // Serve static files.
+            // https://github.com/expressjs/serve-static
             middlewares.push(serveStatic('dist/images/'));
-            //https://www.npmjs.com/package/grunt-contrib-connect
-            //https://www.npmjs.com/package/serve-static
-            //https://searchenginewatch.com/2018/01/04/which-is-the-best-search-engine-for-finding-images/
 
             // var directory = options.directory || options.base[options.base.length - 1];
             // Make directory browse-able.
@@ -149,11 +159,8 @@ module.exports = function (grunt) {
 // https://www.npmjs.com/package/browserify-ng-html2js
 // http://nicholasjohnson.com/blog/building-angular-with-browserify/
 // Create a concatenated file with libraries and use them as globals to avoid having to be importing them every time
-// https://github.com/viart/http-rewrite-middleware
-//   https://stackoverflow.com/questions/16569841/reloading-the-page-gives-wrong-get-request-with-angularjs-html5-mode/17164877#17164877
 // https://www.youtube.com/watch?v=4FE-3jkD0Ag&t=29m05s  <-- Building ES6 Browser Apps w/ Grunt and Babel
 
-// https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
 // https://www.npmjs.com/package/babel-plugin-transform-imports
 // https://thinkster.io/angularjs-es6-tutorial
 // https://www.npmjs.com/package/mustache  <-- Logic-less {{mustache}} templates with JavaScript.
@@ -162,6 +169,3 @@ module.exports = function (grunt) {
 // https://github.com/pugjs/pug  <-- Pug is a high-performance template engine.
 // http://astronautweb.co/snippet/font-awesome/
 // https://material.io/tools/icons/?style=baseline
-
-// TEMPLATES:
-// https://startbootstrap.com/template-overviews/sb-admin/

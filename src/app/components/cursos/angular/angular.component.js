@@ -16,8 +16,8 @@ export default angular
     'ng-inject';
   
     $stateProvider
-      .state('lwd.cursos.angular', {
-        url: '/angular',
+      .state('lwd.cursos.angularjs', {
+        url: '/angularjs',
         template: '<angular-component></angular-component>'
       });
   })
