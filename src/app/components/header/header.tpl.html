@@ -7,10 +7,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" ui-sref="lwd.inicio" ng-class="{active: HeaderCtrl.currentState === 'lwd.inicio'}">LWD</a>
+      <a class="navbar-brand" ui-sref="lwd.inicio" ng-class="{active: HeaderCtrl.currentState === 'lwd.inicio'}"
+         style="border-radius: 100px; padding-right: 5px; padding-left: 5px; margin: 5px;">LWD</a>
     </div>
     <nav class="collapse navbar-collapse" id="headerMenuCollapse">
-      <ul class="nav navbar-nav float-right-sm float-right-md float-right-lg">
+      <ul class="nav navbar-nav float-right-sm float-right-md float-right-lg spacer-5-top-all">
         <li ng-class="{active: HeaderCtrl.currentState === 'lwd.cursos.html'}">
           <a ui-sref="lwd.cursos.html">HTML</a>
         </li>

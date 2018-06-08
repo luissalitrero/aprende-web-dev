@@ -22,7 +22,9 @@ module.exports = function (grunt) {
         files: [
           {expand: true, cwd: 'src/app/components', src: '**/*.html', dest: 'dist/components/'},
           {expand: true, cwd: 'src/app/directives', src: '**/*.html', dest: 'dist/directives/'},
-          {expand: true, cwd: 'src/images', src: '**/*', dest: 'dist/images/'},
+          {expand: true, cwd: 'src/static/images', src: '**/*', dest: 'dist/static/images/'},
+          {expand: true, cwd: 'src/static/css', src: '**/*', dest: 'dist/static/css/'},
+          {expand: true, cwd: 'src/static/fontawesome', src: '**/*', dest: 'dist/static/fontawesome/'},
         ],
       },
     },
@@ -99,7 +101,8 @@ module.exports = function (grunt) {
             }
 
             // https://github.com/expressjs/serve-static
-            middlewares.push(serveStatic('dist/images/'));
+            middlewares.push(serveStatic('dist/static/css/'));
+            middlewares.push(serveStatic('dist/static/images/'));
 
             // var directory = options.directory || options.base[options.base.length - 1];
             // Make directory browse-able.
