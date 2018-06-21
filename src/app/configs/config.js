@@ -3,6 +3,8 @@
 function appConfig($locationProvider, $urlRouterProvider, $qProvider, $stateProvider, $httpProvider) {
   'ng-inject';
 
+  $urlRouterProvider.otherwise('/inicio');
+
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: true,
@@ -11,7 +13,7 @@ function appConfig($locationProvider, $urlRouterProvider, $qProvider, $stateProv
 
   // http://stackoverflow.com/questions/41226122/url-hash-bang-prefix-instead-of-simple-hash-in-angular-1-6
   $locationProvider.hashPrefix('!');
-  $urlRouterProvider.otherwise('/inicio');
+
   $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
 
   // $qProvider.errorOnUnhandledRejections(false);
@@ -19,7 +21,8 @@ function appConfig($locationProvider, $urlRouterProvider, $qProvider, $stateProv
   $stateProvider
     .state('lwd', {
       abstract: true,
-      url: ''
+      url: '',
+      resolve: {}
     });
 }
 

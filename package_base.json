@@ -208,8 +208,8 @@
     /*
      * Web servers:
      */
-    "browser-sync": "2.23.6", // Web server.
     "grunt-contrib-connect": "1.0.2",  // Web server.
+    "grunt-browser-sync": "2.23.6", // Web server.
     "grunt-express-server": "0.5.3",  // Web server, works great with LiveReload + Watch/Regarde.
     "grunt-http-server": "2.0.0",  // Web server, to serve static files that you can hook in your grunt build.
     "grunt-serve": "0.1.6",  // Web server, can be called to run Grunt tasks and serve files.

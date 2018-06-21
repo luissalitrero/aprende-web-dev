@@ -2,12 +2,35 @@ module.exports = function (grunt) {
   require("load-grunt-tasks")(grunt);
 
   let serverPort = 8080;
-  let rewriteModule = require('http-rewrite-middleware');
-  let serveStatic = require('serve-static');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    // https://www.npmjs.com/package/grunt-contrib-clean
     clean: ['dist', 'src-es5'],
+    // https://www.npmjs.com/package/grunt-contrib-less
+    less: {
+      dev: {
+        options: {
+          compress: false,
+          strictImports: true,
+          strictMath: false,
+          strictUnits: false,
+          // dumpLineNumbers: 'all',
+          sourceMap: true,
+        },
+        files: {'dist/css/styles.css': 'src/less/main.less'},
+      },
+    },
+    // https://www.npmjs.com/package/grunt-postcss
+    postcss: {
+      options: {
+        map: true,
+        processors: [require('autoprefixer')]
+      },
+      dev: {src: 'dist/css/styles.css'}
+    },
+    // https://www.npmjs.com/package/grunt-babel
+    // https://www.npmjs.com/package/babel-core
     babel: {
       dev: {
         expand: true,
@@ -17,6 +40,7 @@ module.exports = function (grunt) {
         options: {sourceMap: true}
       },
     },
+    // https://www.npmjs.com/package/grunt-contrib-copy
     copy: {
       main: {
         files: [
@@ -28,6 +52,7 @@ module.exports = function (grunt) {
         ],
       },
     },
+    // https://www.npmjs.com/package/grunt-browserify
     browserify: {
       dev: {
         src: ['src-es5/app.js'],
@@ -36,8 +61,11 @@ module.exports = function (grunt) {
           browserifyOptions: {debug: true},
           transform: [
             [
+              // https://www.npmjs.com/package/babelify
               "babelify",
               {
+                // https://www.npmjs.com/package/babel-preset-es2015
+                // https://www.npmjs.com/package/babel-plugin-add-module-exports
                 "presets": ["es2015"],
                 "plugins": ["add-module-exports"]
               }
@@ -46,6 +74,7 @@ module.exports = function (grunt) {
         },
       },
     },
+    // https://www.npmjs.com/package/grunt-html-build
     htmlbuild: {
       dev: {
         src: 'src/index.html',
@@ -69,86 +98,75 @@ module.exports = function (grunt) {
         }
       }
     },
-    // https://github.com/gruntjs/grunt-contrib-connect
-    //   https://stackoverflow.com/questions/16569841/reloading-the-page-gives-wrong-get-request-with-angularjs-html5-mode/17164877#17164877
-    connect: {
-      server: {
+    // https://browsersync.io/docs/options
+    browserSync: {
+      dev: {
+        bsFiles: {
+          src : [
+            'dist/static/css/*.css',
+            'dist/static/images/*.*'
+          ]
+        },
         options: {
-          base: 'dist',
-          debug: true,
-          directory: null,
-          keepalive: true,
-          livereload: false,
-          port: serverPort,
-          middleware: function (connect, options, middlewares) {
-            // https://github.com/viart/http-rewrite-middleware
-            middlewares.push(rewriteModule.getMiddleware([
-              // {from: '^/cursos/html$', to: '/cursos/html', redirect: 'temporary'},
-              // {from: '^/cursos/css$', to: '/cursos/css', redirect: 'temporary'},
-              // {from: '^/cursos/less$', to: '/cursos/less', redirect: 'temporary'},
-              // {from: '^/cursos/bootstrap$', to: '/cursos/bootstrap', redirect: 'temporary'},
-              // {from: '^/cursos/javascript$', to: '/cursos/javascript', redirect: 'temporary'},
-              // {from: '^/cursos/jquery$', to: '/cursos/jquery', redirect: 'temporary'},
-              // {from: '^/cursos/angularjs$', to: '/cursos/angularjs', redirect: 'temporary'},
-              // {from: '^/cursos/grunt$', to: '/cursos/grunt', redirect: 'temporary'},
-              // {from: '^/cursos/postgres$', to: '/cursos/postgres', redirect: 'temporary'},
-              // {from: '^/cursos/sails$', to: '/cursos/sails', redirect: 'temporary'},
-              {from: '^/.*$', to: '/', redirect: 'permanent'},
-            ]));
-
-            if (!Array.isArray(options.base)) {
-              options.base = [options.base];
-            }
-
-            // https://github.com/expressjs/serve-static
-            middlewares.push(serveStatic('dist/static/css/'));
-            middlewares.push(serveStatic('dist/static/images/'));
-
-            // var directory = options.directory || options.base[options.base.length - 1];
-            // Make directory browse-able.
-            // middlewares.push(connect.directory(directory));
-
-            return middlewares;
-          },
-          onCreateServer: function () {
-            grunt.log.writeln(`-----0-- Port and current working directory - CWD: ${serverPort} - ${process.cwd()}`);
-          },
-          open: {
-            target: `http://local.aprendewebdev:${serverPort}`,
-            appName: 'lwd',
-            "callback": function() {} // called when the app has opened
+          single: true,
+          server: {
+            baseDir: "dist"
           }
         }
       }
     },
-    less: {
-      dev: {
-        options: {
-          compress: false,
-          strictImports: true,
-          strictMath: false,
-          strictUnits: false,
-          // dumpLineNumbers: 'all',
-          sourceMap: true,
-        },
-        files: {'dist/css/styles.css': 'src/less/main.less'},
-      },
-    },
-    postcss: {
-      options: {
-        map: true,
-        processors: [require('autoprefixer')]
-      },
-      dev: {src: 'dist/css/styles.css'}
-    },
+    // https://www.npmjs.com/package/grunt-contrib-watch
     watch: {
       src: {files: ['src/**/*.js'], tasks: ['jschanged']},
       html: {files: ['src/**/*.html'], tasks: ['htmlchanged']},
       less: {files: ['src/**/*.less'], tasks: ['lesschanged']},
-    }
+    },
+    // https://github.com/gruntjs/grunt-contrib-connect  -- https://stackoverflow.com/questions/16569841/reloading-the-page-gives-wrong-get-request-with-angularjs-html5-mode/17164877#17164877
+    // connect: {
+    //   server: {
+    //     options: {
+    //       base: 'dist',
+    //       debug: true,
+    //       directory: null,
+    //       keepalive: true,
+    //       livereload: false,
+    //       port: serverPort,
+    //       middleware: function (connect, options, middlewares) {
+    //         // https://github.com/viart/http-rewrite-middleware
+    //         middlewares.push(modRewrite.getMiddleware([
+    //           // {from: '^/cursos/html$', to: '/index.html', redirect: 'permanent'},
+    //           // {from: '^/cursos/css$', to: '/cursos/css', redirect: 'temporary'},
+    //           {from: '^/.*$', to: '/index.html', redirect: 'permanent'},                      // https://www.youtube.com/watch?v=XiVtu58xVJY
+    //           // {from: '^/(.*)$', to: '/#/$1', redirect: 'permanent'},
+    //         ], {verbose: true}));
+
+    //         !Array.isArray(options.base) && (options.base = [options.base]);
+
+    //         // https://github.com/expressjs/serve-static
+    //         middlewares.push(serveStatic('dist/static/css/'));
+    //         middlewares.push(serveStatic('dist/static/images/'));
+
+    //         // var directory = options.directory || options.base[options.base.length - 1];
+    //         // Make directory browse-able.
+    //         // middlewares.push(connect.directory(directory));
+
+    //         return middlewares;
+    //       },
+    //       onCreateServer: function () {
+    //         grunt.log.writeln(`-----0-- Port and current working directory - CWD: ${serverPort} - ${process.cwd()}`);
+    //       },
+    //       open: {
+    //         target: `http://local.aprendewebdev:${serverPort}`,
+    //         appName: 'lwd',
+    //         "callback": function() {} // called when the app has opened
+    //       }
+    //     }
+    //   }
+    // }
   });
 
-  grunt.registerTask('serve', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'connect']);
+  // grunt.registerTask('serve', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'connect']);
+  grunt.registerTask('serve', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'browserSync']);
   grunt.registerTask('jschanged', ['babel:dev', 'browserify:dev', 'htmlbuild:dev']);
   grunt.registerTask('htmlchanged', ['copy', 'htmlbuild:dev']);
   grunt.registerTask('lesschanged', ['less:dev', 'postcss:dev']);

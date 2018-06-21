@@ -26,9 +26,7 @@
     "angular-ui-bootstrap": "2.5.6",
     "bootstrap": "3.3.7",
     "font-awesome": "4.7.0",
-    "http-rewrite-middleware": "0.1.6",
-    "npm": "5.7.1",
-    "serve-static": "1.13.2"
+    "npm": "5.7.1"
   },
   "devDependencies": {
     "autoprefixer": "8.5.0",
@@ -40,12 +38,12 @@
     "grunt": "1.0.1",
     "grunt-angular-templates": "1.1.0",
     "grunt-babel": "7.0.0",
+    "grunt-browser-sync": "2.2.0",
     "grunt-browserify": "5.2.0",
     "grunt-cli": "1.2.0",
     "grunt-contrib-clean": "1.1.0",
     "grunt-contrib-compress": "1.4.3",
     "grunt-contrib-concat": "1.0.1",
-    "grunt-contrib-connect": "1.0.2",
     "grunt-contrib-copy": "1.0.0",
     "grunt-contrib-cssmin": "2.2.1",
     "grunt-contrib-htmlmin": "2.4.0",
