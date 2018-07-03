@@ -34,7 +34,7 @@ let cursosModule = angular
         template: `<section class="col-xs-12 col-sm-9" role="main" ui-view></section>
                    <article class="col-xs-12 col-sm-3" role="complementary">
                      <aside>
-                       Este será el menú lateral
+                       <sidebar-component></sidebar-component>
                      </aside>
                    </article>`
       });

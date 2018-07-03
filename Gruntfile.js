@@ -49,6 +49,7 @@ module.exports = function (grunt) {
           {expand: true, cwd: 'src/static/images', src: '**/*', dest: 'dist/static/images/'},
           {expand: true, cwd: 'src/static/css', src: '**/*', dest: 'dist/static/css/'},
           {expand: true, cwd: 'src/static/fontawesome', src: '**/*', dest: 'dist/static/fontawesome/'},
+          {expand: true, cwd: 'src/static/js', src: '**/*', dest: 'dist/static/js/'},
         ],
       },
     },
