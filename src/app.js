@@ -9,6 +9,7 @@ import AppRun from './app/configs/run.js';
 import AppComponents from './app/components';
 import ConstantsUtilities from './app/constants/utilities.js';
 import ConstantsArrays from './app/constants/arrays.js';
+import SidebarService from './app/services/sidebar.service.js';
 
 angular
   .module('lwd', [
@@ -18,5 +19,6 @@ angular
   ])
   .constant('utils', ConstantsUtilities)
   .constant('arrays', ConstantsArrays)
+  .service('sidebarService', SidebarService)
   .config(AppConfig)
   .run(AppRun);

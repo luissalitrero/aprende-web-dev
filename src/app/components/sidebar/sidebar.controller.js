@@ -6,21 +6,17 @@
  * @param {} $state - .
  * @description .
  */
-class HomeController {
-  constructor(arrays) {
+class SidebarController {
+  constructor(sidebarService) {
     'ngInject';
 
-    this.courses = arrays.courses;
+    this.sidebarService = sidebarService;
   }
 
   $onInit() {
-    let thisObj = this;
-
-    this.courses.forEach(function (course) {
-      course.link.text = thisObj.linkText;
-      course.link.title = thisObj.linkText;
-    });
+    console.log('-----0--',this.sidebarService);
+    this.currentMenu = this.sidebarService.currentMenu;
   }
 }
 
-export default HomeController;
+export default SidebarController;
