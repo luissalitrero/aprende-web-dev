@@ -7,14 +7,22 @@
  * @description .
  */
 class SidebarController {
-  constructor(sidebarService) {
+  constructor($rootScope, sidebarService) {
     'ngInject';
 
+    this.$rootScope = $rootScope;
     this.sidebarService = sidebarService;
   }
 
   $onInit() {
-    console.log('-----0--',this.sidebarService);
+    let listener1 = this.$rootScope.$on('updateCurrentMenu', (event, args) => {
+      event.preventDefault();
+
+      this.updateCurrentMenu();
+    });
+  }
+
+  updateCurrentMenu() {
     this.currentMenu = this.sidebarService.currentMenu;
   }
 }

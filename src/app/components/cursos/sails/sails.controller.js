@@ -7,10 +7,22 @@
  * @description .
  */
 class SailsCtrl {
-  constructor() {
+  constructor($rootScope, sidebarService) {
     'ngInject';
 
     this.hello = 'I am the Sails course controller';
+    this.$rootScope = $rootScope;
+    this.sidebarService = sidebarService;
+
+    this.updateCurrentMenu();
+  }
+
+  $onInit() {}
+
+  updateCurrentMenu() {
+    this.sidebarService.currentMenu = 'Estoy en el curso de Sails';
+  
+    this.$rootScope.$emit('updateCurrentMenu', {});
   }
 }
 

@@ -7,10 +7,22 @@
  * @description .
  */
 class JavascriptController {
-  constructor() {
+  constructor($rootScope, sidebarService) {
     'ngInject';
 
     this.hello = 'I am the Javascript course controller';
+    this.$rootScope = $rootScope;
+    this.sidebarService = sidebarService;
+
+    this.updateCurrentMenu();
+  }
+
+  $onInit() {}
+
+  updateCurrentMenu() {
+    this.sidebarService.currentMenu = 'Estoy en el curso de Javascript';
+  
+    this.$rootScope.$emit('updateCurrentMenu', {});
   }
 }
 

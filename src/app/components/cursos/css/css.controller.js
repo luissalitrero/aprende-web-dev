@@ -7,10 +7,22 @@
  * @description .
  */
 class CssCtrl {
-  constructor() {
+  constructor($rootScope, sidebarService) {
     'ngInject';
 
     this.hello = 'I am the CSS course controller';
+    this.$rootScope = $rootScope;
+    this.sidebarService = sidebarService;
+
+    this.updateCurrentMenu();
+  }
+
+  $onInit() {}
+
+  updateCurrentMenu() {
+    this.sidebarService.currentMenu = 'Estoy en el curso de CSS';
+  
+    this.$rootScope.$emit('updateCurrentMenu', {});
   }
 }
 

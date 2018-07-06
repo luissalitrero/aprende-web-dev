@@ -7,10 +7,22 @@
  * @description .
  */
 class GruntCtrl {
-  constructor() {
+  constructor($rootScope, sidebarService) {
     'ngInject';
 
     this.hello = 'I am the Grunt course controller';
+    this.$rootScope = $rootScope;
+    this.sidebarService = sidebarService;
+
+    this.updateCurrentMenu();
+  }
+
+  $onInit() {}
+
+  updateCurrentMenu() {
+    this.sidebarService.currentMenu = 'Estoy en el curso de Grunt';
+  
+    this.$rootScope.$emit('updateCurrentMenu', {});
   }
 }
 

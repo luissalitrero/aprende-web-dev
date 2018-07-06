@@ -7,10 +7,22 @@
  * @description .
  */
 class LessCtrl {
-  constructor() {
+  constructor($rootScope, sidebarService) {
     'ngInject';
 
     this.hello = 'I am the LESS course controller';
+    this.$rootScope = $rootScope;
+    this.sidebarService = sidebarService;
+
+    this.updateCurrentMenu();
+  }
+
+  $onInit() {}
+
+  updateCurrentMenu() {
+    this.sidebarService.currentMenu = 'Estoy en el curso de LESS';
+  
+    this.$rootScope.$emit('updateCurrentMenu', {});
   }
 }
 
