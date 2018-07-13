@@ -52,13 +52,13 @@ let arrays = {
     title: "PostgreSql",
     description: "",
     link: {href: "lwd.cursos.postgres", text: "", title: ""},
-    logo: {src: 'static/images/logos/postgres-logo.png', alt: "Logo de PostgreSql", title: "Logo de PostgreSql", class: "postgressql"}
+    logo: {src: 'static/images/logos/postgresql-logo.png', alt: "Logo de PostgreSql", title: "Logo de PostgreSql", class: "postgresql"}
   }, {
     _id: "sails-course-id",
     title: "SailsJs",
     description: "",
     link: {href: "lwd.cursos.sails", text: "", title: ""},
-    logo: {src: 'static/images/logos/sails-logo.png', alt: "Logo de Sails", title: "Logo de Sails", class: "sailsjs"}
+    logo: {src: 'static/images/logos/sailsjs-logo.png', alt: "Logo de Sails", title: "Logo de Sails", class: "sailsjs"}
   }]
 }
 
