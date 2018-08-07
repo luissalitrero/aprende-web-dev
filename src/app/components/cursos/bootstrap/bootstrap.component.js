@@ -13,7 +13,7 @@ let bootstrapComponentDef = {
 export default angular
   .module('lwd.components.cursos.bootstrap', ['ui.router'])
   .config(function ($stateProvider) {
-    'ng-inject';
+    "ngInject";
   
     $stateProvider
       .state('lwd.cursos.bootstrap', {

@@ -8,7 +8,7 @@
  */
 class CssCtrl {
   constructor($rootScope, sidebarService) {
-    'ngInject';
+    "ngInject";
 
     this.hello = 'I am the CSS course controller';
     this.$rootScope = $rootScope;

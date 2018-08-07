@@ -8,7 +8,7 @@
  */
 class LessCtrl {
   constructor($rootScope, sidebarService) {
-    'ngInject';
+    "ngInject";
 
     this.hello = 'I am the LESS course controller';
     this.$rootScope = $rootScope;

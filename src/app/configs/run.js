@@ -13,19 +13,26 @@
  *     "ngInject";
  *   }]);
  */
-function appRun($rootScope, $state) {
-  'ngInject';
+function appRun($transitions, $state, $log, $trace) {
+  "ngInject";
 
-  // $rootScope.$on("$stateChangeError", console.log.bind(console));
-  $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
-    console.log.bind(console);
+  // console.log.bind(console);
+
+  $trace.enable('TRANSITION');
+
+  $transitions.onStart({}, function() {});
+
+  $transitions.onSuccess({}, function() {
+    PR.prettyPrint();
+  });
+
+  $transitions.onError({}, function() {
+    $log.log('-----Transition error--');
 
     if (error === 'AUTH_REQUIRED') {
       $state.go('/inicio');
     }
   });
 }
-
-appRun.$inject = ['$rootScope', '$state'];
 
 export default appRun;

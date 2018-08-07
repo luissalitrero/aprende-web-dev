@@ -8,7 +8,7 @@
  */
 class AngularController {
   constructor($rootScope, sidebarService) {
-    'ngInject';
+    "ngInject";
 
     this.hello = 'I am the Angular course controller';
     this.$rootScope = $rootScope;

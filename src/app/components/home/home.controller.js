@@ -8,7 +8,7 @@
  */
 class HomeController {
   constructor(arrays) {
-    'ngInject';
+    "ngInject";
 
     this.courses = arrays.courses;
   }

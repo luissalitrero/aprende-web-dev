@@ -13,7 +13,7 @@ let jqueryComponentDef = {
 export default angular
   .module('lwd.components.cursos.jquery', ['ui.router'])
   .config(function ($stateProvider) {
-    'ng-inject';
+    "ngInject";
   
     $stateProvider
       .state('lwd.cursos.jquery', {

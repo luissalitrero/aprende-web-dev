@@ -13,7 +13,7 @@ let angularComponentDef = {
 export default angular
   .module('lwd.components.cursos.angular', ['ui.router'])
   .config(function ($stateProvider) {
-    'ng-inject';
+    "ngInject";
   
     $stateProvider
       .state('lwd.cursos.angularjs', {

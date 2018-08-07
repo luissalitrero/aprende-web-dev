@@ -37,7 +37,10 @@ module.exports = function (grunt) {
         cwd: "src",
         src: ["**/*.js"],
         dest: "src-es5",
-        options: {sourceMap: true}
+        options: {
+          sourceMap: true,
+          "plugins": []
+        },
       },
     },
     // https://www.npmjs.com/package/grunt-contrib-copy
@@ -68,12 +71,36 @@ module.exports = function (grunt) {
                 // https://www.npmjs.com/package/babel-preset-es2015
                 // https://www.npmjs.com/package/babel-plugin-add-module-exports
                 "presets": ["es2015"],
-                "plugins": ["add-module-exports"]
+                "plugins": [
+                  "add-module-exports",
+                  "transform-class-properties",
+                  ["angularjs-annotate", { "explicitOnly" : true}]
+                ]
               }
             ]
           ],
         },
       },
+    },
+    // https://www.npmjs.com/package/grunt-ng-annotate
+    // https://github.com/schmod/babel-plugin-angularjs-annotate
+    ngAnnotate: {
+      options: {
+        separator: ';'
+      },
+      dev: {
+        files: {
+          'dist/bundle.annotated.js': ['dist/bundle.js'],
+        },
+      },
+    },
+    // https://github.com/gruntjs/grunt-contrib-uglify
+    uglify: {
+      dev: {
+        files: {
+          'dist/bundle.min.js': ['dist/bundle.annotated.js']
+        }
+      }
     },
     // https://www.npmjs.com/package/grunt-html-build
     htmlbuild: {
@@ -94,7 +121,8 @@ module.exports = function (grunt) {
           replace: false,
           suffix: new Date().getTime(),
           data: {version: "0.1.0"}, // Data to pass to templates
-          scripts: {bundle: ['dist/bundle.js']},
+          scripts: {bundle: ['dist/bundle.min.js']},
+          // scripts: {bundle: ['dist/bundle.js']},
           styles: {bundle: ['dist/css/styles.css']},
         }
       }
@@ -122,6 +150,35 @@ module.exports = function (grunt) {
       html: {files: ['src/**/*.html'], tasks: ['htmlchanged']},
       less: {files: ['src/**/*.less'], tasks: ['lesschanged']},
     },
+  });
+
+  // grunt.registerTask('serve', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'connect']);
+  grunt.registerTask('serve', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'ngAnnotate:dev', 'uglify:dev', 'htmlbuild:dev', 'browserSync']);
+  grunt.registerTask('jschanged', ['babel:dev', 'browserify:dev', 'htmlbuild:dev']);
+  grunt.registerTask('htmlchanged', ['copy', 'htmlbuild:dev']);
+  grunt.registerTask('lesschanged', ['less:dev', 'postcss:dev']);
+  grunt.registerTask('watchFiles', ['watch']);
+
+  grunt.event.on('watch', function (action, filepath, target) {
+    grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
+  });
+};
+
+// https://www.npmjs.com/package/browserify-ng-html2js
+// http://nicholasjohnson.com/blog/building-angular-with-browserify/
+// Create a concatenated file with libraries and use them as globals to avoid having to be importing them every time
+// https://www.youtube.com/watch?v=4FE-3jkD0Ag&t=29m05s  <-- Building ES6 Browser Apps w/ Grunt and Babel
+
+// https://www.npmjs.com/package/babel-plugin-transform-imports
+// https://thinkster.io/angularjs-es6-tutorial
+// https://www.npmjs.com/package/mustache  <-- Logic-less {{mustache}} templates with JavaScript.
+// https://www.npmjs.com/package/grunt-mustache-generate  <-- generate html pages and partials for reuse client side.
+// https://mozilla.github.io/nunjucks/  <-- templating engine for JavaScript.
+// https://github.com/pugjs/pug  <-- Pug is a high-performance template engine.
+// http://astronautweb.co/snippet/font-awesome/
+// https://material.io/tools/icons/?style=baseline
+
+
     // https://github.com/gruntjs/grunt-contrib-connect  -- https://stackoverflow.com/questions/16569841/reloading-the-page-gives-wrong-get-request-with-angularjs-html5-mode/17164877#17164877
     // connect: {
     //   server: {
@@ -164,30 +221,3 @@ module.exports = function (grunt) {
     //     }
     //   }
     // }
-  });
-
-  // grunt.registerTask('serve', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'connect']);
-  grunt.registerTask('serve', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'browserSync']);
-  grunt.registerTask('jschanged', ['babel:dev', 'browserify:dev', 'htmlbuild:dev']);
-  grunt.registerTask('htmlchanged', ['copy', 'htmlbuild:dev']);
-  grunt.registerTask('lesschanged', ['less:dev', 'postcss:dev']);
-  grunt.registerTask('watchFiles', ['watch']);
-
-  grunt.event.on('watch', function (action, filepath, target) {
-    grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
-  });
-};
-
-// https://www.npmjs.com/package/browserify-ng-html2js
-// http://nicholasjohnson.com/blog/building-angular-with-browserify/
-// Create a concatenated file with libraries and use them as globals to avoid having to be importing them every time
-// https://www.youtube.com/watch?v=4FE-3jkD0Ag&t=29m05s  <-- Building ES6 Browser Apps w/ Grunt and Babel
-
-// https://www.npmjs.com/package/babel-plugin-transform-imports
-// https://thinkster.io/angularjs-es6-tutorial
-// https://www.npmjs.com/package/mustache  <-- Logic-less {{mustache}} templates with JavaScript.
-// https://www.npmjs.com/package/grunt-mustache-generate  <-- generate html pages and partials for reuse client side.
-// https://mozilla.github.io/nunjucks/  <-- templating engine for JavaScript.
-// https://github.com/pugjs/pug  <-- Pug is a high-performance template engine.
-// http://astronautweb.co/snippet/font-awesome/
-// https://material.io/tools/icons/?style=baseline

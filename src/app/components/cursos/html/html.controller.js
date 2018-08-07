@@ -10,7 +10,7 @@ class HtmlController {
   // static $inject = ['sidebarService'];
 
   constructor($rootScope, sidebarService) {
-    'ngInject';
+    "ngInject";
 
     this.hello = 'I am the HTML course controller';
     this.$rootScope = $rootScope;
@@ -22,7 +22,7 @@ class HtmlController {
   $onInit() {}
 
   updateCurrentMenu() {
-    this.sidebarService.currentMenu = 'Estoy en el curso de HTML';
+    this.sidebarService.currentMenu = 'Este será el menú del curso de HTML';
   
     this.$rootScope.$emit('updateCurrentMenu', {});
   }

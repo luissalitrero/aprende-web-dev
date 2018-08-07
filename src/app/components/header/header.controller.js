@@ -8,7 +8,7 @@
  */
 class HeaderController {
   constructor($transitions, $state) {
-    'ngInject';
+    "ngInject";
 
     this.$state = $state;
     this.$transitions = $transitions;

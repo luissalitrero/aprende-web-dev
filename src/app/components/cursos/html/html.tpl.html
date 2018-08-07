@@ -6,28 +6,39 @@
   <div class="col-xs-12">
     <h1 class="with-border">Curso de HTML5</h1>
     <p class="no-indent">
-      Bienvenido al curso de HTML5, aquí aprenderás lo necesario para construir la base de tus aplicaciones web, que es el lenguaje HTML, 
+      Bienvenido al curso de HTML5, aquí aprenderás lo necesario para construir tus aplicaciones web, que es el lenguaje HTML, 
       actualmente en su versión 5.
     </p>
     <p>
-      HTML significa <b>HyperText Markup Language</b>, que es algo como <b>Lenguaje de marcado de hypertexto</b>, el cual es el lenguaje 
-      utilizado para crear páginas/aplicaciones web. Dicho lenguaje consiste en un conjunto de <b>etiquetas</b>, las cuales nos servirán 
-      para definir los elementos y la estructura de la aplicación web.
+      <small>
+        <em>
+          Nota: En este curso utilizaremos el término "aplicación web" en lugar de "página web", que en escencia son lo mismo, 
+          ya que podríamos decir que una aplicación web es una página web pero con funcionalidad.
+        </em>
+      </small>
     </p>
     <p>
-      Una etiqueta es un conjunto de letras rodeadas por los símbolos de "<i>menor que</i>" <b>&lt;</b> y "<i>mayor que</i>" <b>&gt;</b>. 
-      La mayoría de las etiquetas se usan en pares, una que abre y otra que cierra, para poner en medio de ellas otros contenidos, aunque 
-      hay etiquetas que no necesitan una etiqueta de cierre. Ejemplos:
+      HTML significa <b>HyperText Markup Language</b>, que se traduciría como <b>Lenguaje de marcado de hypertexto</b>, el cual es el 
+      lenguaje utilizado para crear nuestras aplicaciones web. Dicho lenguaje consiste en un conjunto de <b>etiquetas</b>, las cuales 
+      nos servirán para definir los elementos y la estructura de la aplicación web.
+    </p>
+    <p>
+      Una etiqueta es un conjunto de letras y números, rodeados por los símbolos de 
+      "<i>menor que</i>" <b>&lt;</b> y "<i>mayor que</i>" <b>&gt;</b>. 
+      La mayoría de las etiquetas consisten en una etiqueta que abre y otra que cierra, para poner en medio de ellas sus contenidos, 
+      aunque hay etiquetas que no necesitan una etiqueta de cierre ya que no contienen nada. Ejemplos:
     </p>
   </div>
 </div>
 <div class="row">
   <div class="col-sm-6">
-    <div class="panel panel-default">
+    <div class="panel panel-default example">
       <div class="panel-body">
-        Etiqueta de cierre:<br />
-        En este caso la etiqueta <code>&lt;b&gt;&lt;/b&gt;</code> hará que el texto dentro de las etiquetas de apertura y de cierre sea 
-        mostrado en negritas.
+        <h5>Con etiqueta de cierre:</h5>
+        <p>
+          La etiqueta <code>&lt;b&gt;&lt;/b&gt;</code> hará que el texto dentro de las etiquetas de apertura y de cierre sea 
+          mostrado en negritas.
+        </p>
       </div>
       <div class="panel-footer">
         <code>&lt;b&gt;contenido de la etiqueta&lt;/b&gt;</code>.
@@ -35,14 +46,48 @@
     </div>
   </div>
   <div class="col-sm-6">
-    <div class="panel panel-default">
+    <div class="panel panel-default example">
       <div class="panel-body">
-        Sin etiqueta de cierre:<br />
-        En este caso la etiqueta <code>&lt;br /&gt;</code> agrega un salto de línea donde es colocada, así el texto que le sigue se mostrará 
-        en una nueva línea.
+        <h5>Sin etiqueta de cierre:</h5>
+        <p>
+          La etiqueta <code>&lt;br /&gt;</code> agrega un salto de línea donde es colocada, así el texto que le sigue se mostrará 
+          en una nueva línea.
+        </p>
       </div>
       <div class="panel-footer">
         <code>&lt;br /&gt;</code>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row course-section">
+  <div class="col-xs-12">
+    <h4>
+      Estructura básica de una aplicación web
+    </h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-default example">
+      <div class="panel-body">
+        <!-- https://www.sitepoint.com/everything-need-know-html-pre-element/ -->
+        <!-- https://github.com/google/code-prettify -->
+        <!-- https://stackoverflow.com/questions/33084225/applying-google-prettify-in-angularjs -->
+        <!-- https://stackoverflow.com/questions/21081950/calling-prettyprint-dynamically-in-angularjs-ruins-binding -->
+        <!-- https://stackoverflow.com/questions/18942607/angularjs-how-to-call-prettyprint -->
+        <!-- https://websemantics.uk/articles/displaying-code-in-web-pages/ -->
+        <?prettify lang=html linenums=true?>
+        <pre class="prettyprint lang-html linenums">
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>Curso de Desarrollo Web</title>
+            </head>
+            <body>
+            </body>
+          </html>
+        </pre>
       </div>
     </div>
   </div>

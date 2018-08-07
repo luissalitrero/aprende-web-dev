@@ -1,7 +1,7 @@
 'use strict';
 
 function appConfig($locationProvider, $urlRouterProvider, $qProvider, $stateProvider, $httpProvider) {
-  'ng-inject';
+  "ngInject";
 
   $urlRouterProvider.otherwise('/inicio');
 
@@ -25,7 +25,5 @@ function appConfig($locationProvider, $urlRouterProvider, $qProvider, $stateProv
       resolve: {}
     });
 }
-
-appConfig.$inject = ['$locationProvider', '$urlRouterProvider', '$qProvider', '$stateProvider', '$httpProvider'];
 
 export default appConfig;

@@ -8,7 +8,7 @@
  */
 class PostgresCtrl {
   constructor($rootScope, sidebarService) {
-    'ngInject';
+    "ngInject";
 
     this.hello = 'I am the Postgres course controller';
     this.$rootScope = $rootScope;

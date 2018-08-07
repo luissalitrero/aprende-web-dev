@@ -15,7 +15,7 @@ let homeComponentDef = {
 let homeComponent = angular
   .module('lwd.components.home', ['ui.router'])
   .config(function ($stateProvider) {
-    'ng-inject';
+    "ngInject";
   
     $stateProvider
       .state('lwd.inicio', {

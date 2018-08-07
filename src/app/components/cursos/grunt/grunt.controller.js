@@ -8,7 +8,7 @@
  */
 class GruntCtrl {
   constructor($rootScope, sidebarService) {
-    'ngInject';
+    "ngInject";
 
     this.hello = 'I am the Grunt course controller';
     this.$rootScope = $rootScope;

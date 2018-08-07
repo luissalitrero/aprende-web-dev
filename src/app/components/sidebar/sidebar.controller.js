@@ -8,7 +8,7 @@
  */
 class SidebarController {
   constructor($rootScope, sidebarService) {
-    'ngInject';
+    "ngInject";
 
     this.$rootScope = $rootScope;
     this.sidebarService = sidebarService;

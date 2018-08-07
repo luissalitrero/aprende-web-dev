@@ -13,7 +13,7 @@ let gruntComponentDef = {
 export default angular
   .module('lwd.components.cursos.grunt', ['ui.router'])
   .config(function ($stateProvider) {
-    'ng-inject';
+    "ngInject";
   
     $stateProvider
       .state('lwd.cursos.grunt', {

@@ -13,7 +13,7 @@ let sailsComponentDef = {
 export default angular
   .module('lwd.components.cursos.sails', ['ui.router'])
   .config(function ($stateProvider) {
-    'ng-inject';
+    "ngInject";
   
     $stateProvider
       .state('lwd.cursos.sails', {

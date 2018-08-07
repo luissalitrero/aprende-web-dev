@@ -13,7 +13,7 @@ let postgresComponentDef = {
 export default angular
   .module('lwd.components.cursos.postgres', ['ui.router'])
   .config(function ($stateProvider) {
-    'ng-inject';
+    "ngInject";
   
     $stateProvider
       .state('lwd.cursos.postgres', {

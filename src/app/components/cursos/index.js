@@ -25,7 +25,7 @@ let cursosModule = angular
     jqueryComponent
   ])
   .config(function ($stateProvider) {
-    'ng-inject';
+    "ngInject";
   
     $stateProvider
       .state('lwd.cursos', {

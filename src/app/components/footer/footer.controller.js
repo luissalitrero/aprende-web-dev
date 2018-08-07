@@ -8,7 +8,7 @@
  */
 class FooterController {
   constructor() {
-    'ngInject';
+    "ngInject";
 
     this.footerBla = 'I am in the footer component';
   };

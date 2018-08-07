@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="lwd" lang="es">
+<html ng-app="lwd" lang="es" ng-strict-di>
   <head>
     <base href="/">
     <meta charset="utf-8">
@@ -10,18 +10,22 @@
     <link type="text/css" rel="stylesheet" href="static/css/bootstrap-3.3.7.min.css">
     <!-- build:style bundle -->
     <!-- /build -->
+    <!-- <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script> -->
+    <!-- <script src="https://rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer></script> -->
+    <link rel="stylesheet" type="text/css" href="static/css/prettify.css">
     <script type="text/javascript" defer src="static/fontawesome/fa-brands.min.js"></script>
     <script type="text/javascript" defer src="static/fontawesome/fa-solid.min.js"></script>
     <script type="text/javascript" src="static/fontawesome/fontawesome.min.js"></script>
     <script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="static/js/bootstrap-3.3.7.min.js"></script>
+    <script type="text/javascript" src="static/js/prettify/prettify.js"></script>
     <style type="text/css">
       [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
         display: none !important;
       }
     </style>
   </head>
-  <body>
+  <body lwd-onload-directive>
     <header class="header-container">
       <header-component></header-component>
     </header>

@@ -12,13 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "@angular/material": "5.1.0",  // high-quality UI components built with Angular and TypeScript, following the Material Design spec.
-    "@uirouter/angularjs": "1.0.13",  // The de-facto solution to flexible routing in angular
+    "@uirouter/angularjs": "1.0.13",  // The de-facto solution to flexible routing in angular -- https://ui-router.github.io/ng1/docs/latest/ .
     "ag-grid": "15.0.0",  // HTML 5 Grid/table.
     "angular": "1.6.4",  // Angular.
     "angular-animate": "1.6.4",  // Animations with css and js.
     "angular-aria": "1.6.8",  // Support for ARIA attributes that convey semantic info about the app for users of assistive technologies.
     "angular-google-map": "0.0.2",  // Angular directive to display a custom google map.
-    "angular-loader": "1.6.8",  // asynchronously load files: https://stackoverflow.com/questions/15777449/what-is-angular-loader-js-for
+    "angular-loader": "1.6.8",  // asynchronously load files: https://stackoverflow.com/questions/15777449/what-is-angular-loader-js-for .
     "angular-loading-bar": "0.9.0",  // Add a loading bar whenever an XHR request goes out.
 	"angular-local-storage": "0.7.1",  // An Angular module that gives you access to the browsers local storage.
     "angular-localstorage": "1.1.5",  // Provide read/write access to browsers' localStorage.
@@ -27,13 +27,13 @@
     "angular-nvd3": "1.0.9",  // This thing is designed to make it easier to work with nvd3.js re-usable charting library.
     "angular-route": "1.6.8",  // The ngRoute module provides routing and deeplinking services and directives for AngularJS apps.
     "angular-touch": "1.6.8",  // The ngTouch module provides helpers for touch-enabled devices. Based on jQuery Mobile touch event handling.
-    "angular-ui-bootstrap": "2.5.6",  // Bootstrap components written in pure AngularJS by the AngularUI Team
+    "angular-ui-bootstrap": "2.5.6",  // Bootstrap components written in pure AngularJS by the AngularUI Team.
     "angular-ui-calendar": "1.0.2",  // A complete AngularJS directive for the Arshaw FullCalendar.
-    "angular-xeditable": "0.8.1",  // Edit in place for AngularJS
+    "angular-xeditable": "0.8.1",  // Edit in place for AngularJS.
     "async": "2.6.0",  // Async is a utility module which provides straight-forward, powerful functions for working with asynchronous JS.
-    "autoprefixer": "7.2.3",  // Adds vendor prefixes, using data from "Can I Use". https://github.com/postcss/postcss
-    "awesome-bootstrap-checkbox": "1.0.0",  // Font Awesome Bootstrap Checkboxes & Radios plugin. CSS to make inputs look prettier. No JS!
-    "aws-sdk": "2.177.0",  // The official AWS SDK for JavaScript, available for browsers and mobile devices, or Node.js backends
+    "autoprefixer": "7.2.3",  // Adds vendor prefixes, using data from "Can I Use". https://github.com/postcss/postcss .
+    "awesome-bootstrap-checkbox": "1.0.0",  // Font Awesome Bootstrap Checkboxes & Radios plugin. CSS to make inputs look prettier. No JS!.
+    "aws-sdk": "2.177.0",  // The official AWS SDK for JavaScript, available for browsers and mobile devices, or Node.js backends.
     "babelify": "8.0.0",  // For use with browserify. In Babel 6.0.0 there are no plugins included by default. You must include some presets and/or plugins.
     "babel-cli": "6.26.0",  // Babel command line. In addition, various entry point scripts live in the top-level package at babel-cli/bin.
     "babel-plugin-transform-class-properties": "6.24.1",  // Transform es2015 static class props and props in es2016 prop initializer syntax.
@@ -47,7 +47,7 @@
     "babel-core": "6.26.0",
     // https://babeljs.io/docs/plugins/
     // https://www.sitepoint.com/setting-up-es6-project-using-babel-browserify/
-    "babel-plugin-add-module-exports": "0.2.1", // https://github.com/59naga/babel-plugin-add-module-exports
+    "babel-plugin-add-module-exports": "0.2.1", // https://github.com/59naga/babel-plugin-add-module-exports .
 	"better-validator": "2.1.7",  // better-validator is my second generation object or request validator for node.js.
     "bootstrap": "3.3.7", // front-end framework for faster and easier web development, created by Mark Otto and Jacob Thornton.
     "braintree": "2.4.0",  // Accept web and mobile payments.
@@ -64,12 +64,12 @@
     "chai": "4.1.2",  // Chai is an assertion library for node and the browser that can be paired with any javascript testing framework.
     "chai-as-promised": "7.1.1",  // Chai as Promised extends Chai with a fluent language for asserting facts about promises.
     "chai-fuzzy": "1.6.1",  // Fuzzy matchers for chai based on underscore and inspired by jasmine.
-    "chance": "1.0.13",  // Random generator helper for JavaScript
+    "chance": "1.0.13",  // Random generator helper for JavaScript.
     "check-js": "0.0.4",  // A JSON validator with schema and sanification(optional).
     "cheers": "0.5.0",  // This is a Cheerio based scraper, useful to extract data from a website using CSS selectors.
-    "cities.json": "1.1.0",  // Cities of the World. The cities comes from GeoNames Gazetteer: http://www.geonames.org
+    "cities.json": "1.1.0",  // Cities of the World. The cities comes from GeoNames Gazetteer: http://www.geonames.org .
     "composable-middleware": "0.3.0",  // Treat a sequence of middleware as middleware.
-    "compression": "1.7.1",  // Node.js compression middleware. The following compression codings are supported: deflate, gzip
+    "compression": "1.7.1",  // Node.js compression middleware. The following compression codings are supported: deflate, gzip.
     "connect-redis": "3.3.2",  // Redis session store backed by node_redis. Requires redis >= 2.0.0 for the SETEX command.
     "cookie": "0.3.1",  // Basic HTTP cookie parser and serializer for HTTP servers.
     "cookie-parser": "1.4.3",  // Parse Cookie header and populate req.cookies with an object keyed by the cookie names. 
@@ -93,7 +93,7 @@
     "grunt-angular-templates": "1.1.0",  // Speed up your AngularJS app by minifying/combining/caching HTML templates with $templateCache.
     "grunt-asset-injector": "0.1.0",  // Inject references to files into other files (think scripts and stylesheets into an html file).
     "grunt-babel": "7.0.0",  // Use next generation JavaScript, today, with Babel.
-    "grunt-browserify": "5.2.0",  // Grunt task for browserify.  // https://github.com/jmreidy/grunt-browserify
+    "grunt-browserify": "5.2.0",  // Grunt task for browserify.  // https://github.com/jmreidy/grunt-browserify .
     "grunt-cli": "1.2.0",  // Install this globally and you'll have access to the grunt command anywhere on your system.
     "grunt-concurrent": "2.3.1",  // Run grunt tasks concurrently.
     "grunt-contrib-clean": "1.1.0",  // Clean files and folders.
