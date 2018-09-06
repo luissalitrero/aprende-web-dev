@@ -36,7 +36,7 @@
         <div class="thumbnail position-relative-all">
           <div class="thumbnail-image-container text-center {{course.logo.class}}"
                ng-class="{'bootstrap-course': course._id === 'bootstrap-course-id'}">
-            <img src="{{course.logo.src}}" alt="{{course.logo.alt}}" title="{{course.logo.title}}"
+            <img ng-src="{{course.logo.src}}" alt="{{course.logo.alt}}" title="{{course.logo.title}}"
                  ng-if="course._id !== 'bootstrap-course-id'" class="{{course.logo.class}}" />
             <span class="bootstrap-course-logo" title="{{course.logo.title}}"
                   ng-if="course._id === 'bootstrap-course-id'">

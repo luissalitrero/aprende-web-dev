@@ -6,7 +6,8 @@
   "scripts": {
     "install-dependencies": "npm install -g grunt-cli && npm install -g browserify && npm install",
     "serve-linux": "BABEL_ENV=development && grunt serve",
-    "serve": "SET BABEL_ENV=development && grunt serve",
+    "serve:dev": "SET BABEL_ENV=development && grunt serve:dev",
+    "serve:prod": "SET BABEL_ENV=development && grunt serve:prod",
     "watch": "grunt watchFiles"
   },
   "keywords": [],

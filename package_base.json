@@ -14,6 +14,7 @@
     "@angular/material": "5.1.0",  // high-quality UI components built with Angular and TypeScript, following the Material Design spec.
     "@uirouter/angularjs": "1.0.13",  // The de-facto solution to flexible routing in angular -- https://ui-router.github.io/ng1/docs/latest/ .
     "ag-grid": "15.0.0",  // HTML 5 Grid/table.
+    "angular-es6": "3.2.1",  // https://www.npmjs.com/package/angular-es6
     "angular": "1.6.4",  // Angular.
     "angular-animate": "1.6.4",  // Animations with css and js.
     "angular-aria": "1.6.8",  // Support for ARIA attributes that convey semantic info about the app for users of assistive technologies.
@@ -155,6 +156,7 @@
     "ng-tags-input": "3.2.0",  // Tags input directive for AngularJS. http://mbenford.github.io/ngTagsInput
 	"nodemon": "1.14.11",  // Watch files in the directory in which nodemon was started, if any file change, nodemon will restart your node application.
     "ngmap": "1.18.4",  // GoogleMap AngularJS Directive
+    npm i --save angular angular-mocks ng-metadata      // https://github.com/ngParty/ng-metadata
     "node-validator": "0.1.27",  // A simple, extensible object property validator for node.js.
     "node-xlsx": "0.11.2",  // Excel file parser/builder that relies on js-xlsx.
     "nodemailer": "4.4.1",  // Send e-mails from Node.js

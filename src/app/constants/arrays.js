@@ -22,7 +22,7 @@ let arrays = {
     title: "Bootstrap3",
     description: "Agiliza la creación de tus aplicaciones web con este gran framework CSS.",
     link: {href: "lwd.cursos.bootstrap", text: "", title: ""},
-    logo: {src: 'static/images/logos/bootstrap-logo.png', alt: "Logo de Bootstrap", title: "Logo de Bootstrap", class: ""}
+    logo: {src: null, alt: "Logo de Bootstrap", title: "Logo de Bootstrap", class: ""}
   }, {
     _id: "javascript-course-id",
     title: "Javascript",

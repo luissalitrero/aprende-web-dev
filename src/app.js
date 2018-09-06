@@ -4,6 +4,9 @@
 // import angular from 'angular';
 // import uiRouter from '@uirouter/angularjs';
 
+// https://github.com/michaelbromley/angular-es6
+// https://www.npmjs.com/package/angular-es6
+import register from './app/utilities/register.js';
 import AppConfig from './app/configs/config.js';
 import AppRun from './app/configs/run.js';
 import AppComponents from './app/components';
@@ -21,6 +24,10 @@ angular
   .constant('utils', ConstantsUtilities)
   .constant('arrays', ConstantsArrays)
   .service('sidebarService', SidebarService)
-  .directive('lwdOnloadDirective', () => new LwdOnloadDirective())
+  // .directive('lwdOnloadDirective', register(LwdOnloadDirective))
   .config(AppConfig)
   .run(AppRun);
+
+  // .directive('lwdOnloadDirective', () => new LwdOnloadDirective())
+
+register('lwd').directive('lwdOnloadDirective', LwdOnloadDirective);

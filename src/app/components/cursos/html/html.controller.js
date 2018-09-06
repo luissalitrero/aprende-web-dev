@@ -12,7 +12,6 @@ class HtmlController {
   constructor($rootScope, sidebarService) {
     "ngInject";
 
-    this.hello = 'I am the HTML course controller';
     this.$rootScope = $rootScope;
     this.sidebarService = sidebarService;
 

@@ -23,23 +23,30 @@
  */
 class LwdOnloadDirective {
   // static $inject = [];
+  // restrict = 'A';
 
   constructor() {
     "ngInject";
+
+    console.log('-----00--');
 
     this.restrict = 'A';
   }
 
   controller($scope) {
     "ngInject";
+
+    console.log('-----000--');
   }
 
   link(scope, element, attrs) {
     "ngInject";
 
-    console.log('-----1--');
+    element.html(prettyPrintOne(replaceText(element.html()),'',true));
+
+    console.log('-----01--');
     angular.element(document).ready(() => {
-      console.log('-----0--document ready');
+      console.log('-----00--document ready');
     });
   }
 }

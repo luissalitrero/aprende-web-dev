@@ -1,7 +1,32 @@
 module.exports = function (grunt) {
   require("load-grunt-tasks")(grunt);
 
-  let serverPort = 8080;
+  // let serverPort = 8080;
+  let htmlbuildOpts = {
+    src: 'src/index.html',
+    dest: 'dist/index.html',
+    options: {
+      // EOL: 'autodectect',
+      allowUnknownTags: true,
+      basePath: false,
+      beautify: true,
+      keepTags: true,
+      logOptions: true,
+      parseTag: 'build',
+      // prefix: '//some-cdn',
+      processFiles: false,
+      relative: true,
+      replace: false,
+      suffix: new Date().getTime(),
+      data: {version: "0.1.0"}, // Data to pass to templates
+      // scripts: {bundle: ['dist/bundle.js']},
+      styles: {bundle: ['dist/css/styles.css']},
+    }
+  };
+  let htmlbuildOptsDev = JSON.parse(JSON.stringify(htmlbuildOpts));
+  let htmlbuildOptsProd = JSON.parse(JSON.stringify(htmlbuildOpts));
+  htmlbuildOptsDev.options.scripts = {bundle: ['dist/bundle.annotated.js']};
+  htmlbuildOptsProd.options.scripts = {bundle: ['dist/bundle.min.js']};
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -85,62 +110,31 @@ module.exports = function (grunt) {
     // https://www.npmjs.com/package/grunt-ng-annotate
     // https://github.com/schmod/babel-plugin-angularjs-annotate
     ngAnnotate: {
-      options: {
-        separator: ';'
-      },
+      options: {separator: ';'},
       dev: {
-        files: {
-          'dist/bundle.annotated.js': ['dist/bundle.js'],
-        },
+        files: {'dist/bundle.annotated.js': ['dist/bundle.js']},
       },
     },
     // https://github.com/gruntjs/grunt-contrib-uglify
     uglify: {
       dev: {
-        files: {
-          'dist/bundle.min.js': ['dist/bundle.annotated.js']
-        }
+        files: {'dist/bundle.min.js': ['dist/bundle.annotated.js']}
       }
     },
     // https://www.npmjs.com/package/grunt-html-build
     htmlbuild: {
-      dev: {
-        src: 'src/index.html',
-        dest: 'dist/index.html',
-        options: {
-          // EOL: 'autodectect',
-          allowUnknownTags: true,
-          basePath: false,
-          beautify: true,
-          keepTags: true,
-          logOptions: true,
-          parseTag: 'build',
-          // prefix: '//some-cdn',
-          processFiles: false,
-          relative: true,
-          replace: false,
-          suffix: new Date().getTime(),
-          data: {version: "0.1.0"}, // Data to pass to templates
-          scripts: {bundle: ['dist/bundle.min.js']},
-          // scripts: {bundle: ['dist/bundle.js']},
-          styles: {bundle: ['dist/css/styles.css']},
-        }
-      }
+      dev: htmlbuildOptsDev,
+      prod: htmlbuildOptsProd
     },
     // https://browsersync.io/docs/options
     browserSync: {
       dev: {
         bsFiles: {
-          src : [
-            'dist/static/css/*.css',
-            'dist/static/images/*.*'
-          ]
+          src : ['dist/static/css/*.css', 'dist/static/images/*.*']
         },
         options: {
           single: true,
-          server: {
-            baseDir: "dist"
-          }
+          server: {baseDir: "dist"}
         }
       }
     },
@@ -153,8 +147,9 @@ module.exports = function (grunt) {
   });
 
   // grunt.registerTask('serve', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'connect']);
-  grunt.registerTask('serve', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'ngAnnotate:dev', 'uglify:dev', 'htmlbuild:dev', 'browserSync']);
-  grunt.registerTask('jschanged', ['babel:dev', 'browserify:dev', 'htmlbuild:dev']);
+  grunt.registerTask('serve:dev', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'ngAnnotate:dev', 'htmlbuild:dev', 'browserSync']);
+  grunt.registerTask('serve:prod', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'ngAnnotate:dev', 'uglify:dev', 'htmlbuild:prod', 'browserSync']);
+  grunt.registerTask('jschanged', ['babel:dev', 'copy', 'browserify:dev', 'ngAnnotate:dev', 'browserify:dev', 'htmlbuild:dev']);
   grunt.registerTask('htmlchanged', ['copy', 'htmlbuild:dev']);
   grunt.registerTask('lesschanged', ['less:dev', 'postcss:dev']);
   grunt.registerTask('watchFiles', ['watch']);
