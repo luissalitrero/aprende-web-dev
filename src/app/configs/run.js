@@ -29,9 +29,9 @@ function appRun($transitions, $state, $log, $trace) {
   $transitions.onError({}, function() {
     $log.log('-----Transition error--');
 
-    if (error === 'AUTH_REQUIRED') {
-      $state.go('/inicio');
-    }
+    // if (error === 'AUTH_REQUIRED') {
+    //   $state.go('/inicio');
+    // }
   });
 }
 

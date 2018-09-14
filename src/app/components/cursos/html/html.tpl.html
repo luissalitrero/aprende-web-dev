@@ -1,11 +1,10 @@
 <!-- https://www.w3schools.com/html/default.asp -->
 <!-- https://www.w3schools.com/tags/tag_colgroup.asp -->
-<!-- Mi curso será recorriendo todas las etiquetas -->
-<!-- Al final hay que ver el curso como viene en w3schools porque hay detalles útiles que incluir -->
+<!-- Mi curso será recorriendo todas las etiquetas, al final hay que ver el curso como viene en w3schools porque hay detalles útiles que incluir -->
 <!-- https://www.w3schools.com/howto/default.asp -->
-<div class="row course-section">
+<div class="row">
   <div class="col-xs-12">
-    <h1 class="with-border">Curso de HTML5</h1>
+    <h1 class="with-border" lwd-onload-directive>Curso de HTML5</h1>
     <p class="no-indent">
       Bienvenido al curso de HTML5, aquí aprenderás lo necesario para construir tus aplicaciones web, que es el lenguaje HTML, 
       actualmente en su versión 5.
@@ -33,35 +32,35 @@
 </div>
 <div class="row">
   <div class="col-sm-6">
-    <div class="panel panel-default example">
+    <figure class="panel panel-default example">
       <div class="panel-body">
         <h5>Con etiqueta de cierre:</h5>
         <p>
-          La etiqueta <code>&lt;b&gt;&lt;/b&gt;</code> hará que el texto dentro de las etiquetas de apertura y de cierre sea 
-          mostrado en negritas.
+          La etiqueta <code class="highlight pre" data-lang="html"><b></b></code> 
+          hará que el texto dentro de las etiquetas de apertura y de cierre sea mostrado en negritas.
         </p>
       </div>
       <div class="panel-footer">
-        <code>&lt;b&gt;contenido de la etiqueta&lt;/b&gt;</code>.
+        <code class="highlight pre" data-lang="html"><b>tagContent--contenido de la etiqueta--tagContentEnd</b></code>
       </div>
-    </div>
+    </figure>
   </div>
   <div class="col-sm-6">
-    <div class="panel panel-default example">
+    <figure class="panel panel-default example">
       <div class="panel-body">
         <h5>Sin etiqueta de cierre:</h5>
         <p>
-          La etiqueta <code>&lt;br /&gt;</code> agrega un salto de línea donde es colocada, así el texto que le sigue se mostrará 
-          en una nueva línea.
+          La etiqueta <code class="highlight pre" data-lang="html"><br /></code> agrega un salto de línea donde es colocada, así el 
+          texto que le sigue se mostrará en una nueva línea.
         </p>
       </div>
       <div class="panel-footer">
-        <code>&lt;br /&gt;</code>
+        <code class="highlight pre" data-lang="html"><br /></code>
       </div>
-    </div>
+    </figure>
   </div>
 </div>
-<div class="row course-section">
+<div class="row">
   <div class="col-xs-12">
     <h4>
       Estructura básica de una aplicación web
@@ -69,178 +68,213 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-6">
-    <div class="panel panel-default example">
+  <div class="col-xs-12">
+    <figure class="panel panel-default example">
       <div class="panel-body">
-        <!-- https://www.sitepoint.com/everything-need-know-html-pre-element/ -->
-        <!-- https://github.com/google/code-prettify -->
-        <!-- https://stackoverflow.com/questions/33084225/applying-google-prettify-in-angularjs -->
-        <!-- https://stackoverflow.com/questions/21081950/calling-prettyprint-dynamically-in-angularjs-ruins-binding -->
-        <!-- https://stackoverflow.com/questions/18942607/angularjs-how-to-call-prettyprint -->
-        <!-- https://websemantics.uk/articles/displaying-code-in-web-pages/ -->
-          <!-- https://stackoverflow.com/questions/548466/whats-the-best-way-to-add-colored-sytax-code-snippets-to-a-web-page -->
-          <!-- http://qbnz.com/highlighter/ -->
-        <?prettify lang=html linenums=true?>
-        <pre class="prettyprint lang-html linenums">
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <title>Curso de Desarrollo Web</title>
-            </head>
-            <body>
-            </body>
-          </html>
-        </pre>
+        <p>
+          Esto es lo mínimo que debe contener una aplicación web:
+        </p>
       </div>
-    </div>
+      <div class="panel-footer">
+        <!-- https://www.freeformatter.com/html-escape.html#ad-output -->
+        <!-- https://prismjs.com/ -->
+        <!-- https://github.com/google/code-prettify -->
+        <code class="highlight pre" data-lang="html">
+<!DOCTYPE tagAttr--html--tagAttrEnd>
+<html>
+  <head>
+    <title>tagContent--Curso de Desarrollo Web--tagContentEnd</title>
+  </head>
+  <body>
+  </body>
+</html>
+        </code>
+      </div>
+    </figure>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
   </div>
 </div>
 
-HTML Tags
+<script type="text/javascript">
+/*
+  <div class="row">
+    <div class="col-sm-6">
+      <figure class="panel panel-default example">
+        <div class="panel-body">
+          <!-- https://www.sitepoint.com/everything-need-know-html-pre-element/ -->
+          <!-- https://github.com/google/code-prettify -->
+          <!-- https://stackoverflow.com/questions/33084225/applying-google-prettify-in-angularjs -->
+          <!-- https://stackoverflow.com/questions/21081950/calling-prettyprint-dynamically-in-angularjs-ruins-binding -->
+          <!-- https://stackoverflow.com/questions/18942607/angularjs-how-to-call-prettyprint -->
+          <!-- https://websemantics.uk/articles/displaying-code-in-web-pages/ -->
+            <!-- https://stackoverflow.com/questions/548466/whats-the-best-way-to-add-colored-sytax-code-snippets-to-a-web-page -->
+            <!-- http://qbnz.com/highlighter/ -->
+          <?prettify lang=html linenums=true?>
+          <pre class="prettyprint lang-html linenums">
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <title>Curso de Desarrollo Web</title>
+              </head>
+              <body>
+              </body>
+            </html>
+          </pre>
+        </div>
+      </figure>
+    </div>
+  </div>
 
-  Texto
-<a></a>
-<abbr>
-<address>
-<b></b>
-<bdi>
-<bdo>
-<blockquote>
-<br />
-<cite>
-<code>
-<del>
-<details>
-<em>
-<h1></h1>
-<h2></h2>
-<h3></h3>
-<h4></h4>
-<h5></h5>
-<h6></h6>
-<i></i>
-<ins>
-<kbd>
-<legend>
-<mark>
-<p></p>
-<param>
-<pre></pre>
-<q>
-<rp>
-<rt>
-<ruby>
-<s></s>
-<small></small>
-<strong></strong>
-<sub>
-<sup>
-<u></u>
-<caption>
-<dfn>
+  HTML Tags
 
-
-
-  Estructura/Maquetado
-<area>
-<article></article>
-<aside></aside>
-<body></body>
-<div></div>
-<fieldset></fieldset>
-<figure>
-<footer></footer>
-<head></head>
-<header></header>
-<hr />
-<html></html>
-<iframe>
-<img />
-<main></main>
-<map></map>
-<nav></nav>
-<picture>
-<progress>
-<section></section>
-<svg>
-<template>
-<title>
-<video>
-
-
-
-  Tablas
-<col>
-<colgroup>
-<table></table>
-<tbody></tbody>
-<td></td>
-<th></th>
-<thead></thead>
-<tr></tr>
-<tfoot></tfoot>
+    Texto
+  <a></a>
+  <abbr>
+  <address>
+  <b></b>
+  <bdi>
+  <bdo>
+  <blockquote>
+  <br />
+  <cite>
+  <code>
+  <del>
+  <details>
+  <em>
+  <h1></h1>
+  <h2></h2>
+  <h3></h3>
+  <h4></h4>
+  <h5></h5>
+  <h6></h6>
+  <i></i>
+  <ins>
+  <kbd>
+  <legend>
+  <mark>
+  <p></p>
+  <param>
+  <pre></pre>
+  <q>
+  <rp>
+  <rt>
+  <ruby>
+  <s></s>
+  <small></small>
+  <strong></strong>
+  <sub>
+  <sup>
+  <u></u>
+  <caption>
+  <dfn>
 
 
 
-  Listas
-<dd></dd>
-<dl></dl>
-<dt></dt>
-<datalist>
-<li></li>
-<ol></ol>
-<ul></ul>
+    Estructura/Maquetado
+  <area>
+  <article></article>
+  <aside></aside>
+  <body></body>
+  <div></div>
+  <fieldset></fieldset>
+  <figure>
+  <footer></footer>
+  <head></head>
+  <header></header>
+  <hr />
+  <html></html>
+  <iframe>
+  <img />
+  <main></main>
+  <map></map>
+  <nav></nav>
+  <picture>
+  <progress>
+  <section></section>
+  <svg>
+  <template>
+  <title>
+  <video>
 
 
-  Formularios
-<form></form>
-<button></button>
-<input />
-<label></label>
-<optgroup>
-<option></option>
-<select></select>
-<textarea></textarea>
+
+    Tablas
+  <col>
+  <colgroup>
+  <table></table>
+  <tbody></tbody>
+  <td></td>
+  <th></th>
+  <thead></thead>
+  <tr></tr>
+  <tfoot></tfoot>
 
 
 
-<!-- -->
-<!DOCTYPE>
-<base>
-<audio>
-<canvas>
-<data>
-<dialog>
-<embed>
-<figcaption>
-<link>
-<meta>
-<meter>
-<noscript>
-<object>
-<output>
-<samp>
-<script>
-<source>
-<span>
-<style>
-<summary>
-<track>
-<var>
-<time>
-<wbr>
+    Listas
+  <dd></dd>
+  <dl></dl>
+  <dt></dt>
+  <datalist>
+  <li></li>
+  <ol></ol>
+  <ul></ul>
 
 
-Not supported in HTML
-<acronym>
-<applet>
-<basefont>
-<big>
-<center>
-<dir>
-<font>
-<frame>
-<frameset>
-<noframes>
-<strike>
-<tt>
+    Formularios
+  <form></form>
+  <button></button>
+  <input />
+  <label></label>
+  <optgroup>
+  <option></option>
+  <select></select>
+  <textarea></textarea>
+
+
+
+  <!-- -->
+  <!DOCTYPE>
+  <base>
+  <audio>
+  <canvas>
+  <data>
+  <dialog>
+  <embed>
+  <figcaption>
+  <link>
+  <meta>
+  <meter>
+  <noscript>
+  <object>
+  <output>
+  <samp>
+  <script>
+  <source>
+  <span>
+  <style>
+  <summary>
+  <track>
+  <var>
+  <time>
+  <wbr>
+
+
+  Not supported in HTML
+  <acronym>
+  <applet>
+  <basefont>
+  <big>
+  <center>
+  <dir>
+  <font>
+  <frame>
+  <frameset>
+  <noframes>
+  <strike>
+  <tt>
+*/
+</script>

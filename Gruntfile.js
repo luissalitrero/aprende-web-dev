@@ -1,6 +1,8 @@
 module.exports = function (grunt) {
   require("load-grunt-tasks")(grunt);
 
+  const escape = require('escape-html');
+
   // let serverPort = 8080;
   let htmlbuildOpts = {
     src: 'src/index.html',
@@ -25,6 +27,7 @@ module.exports = function (grunt) {
   };
   let htmlbuildOptsDev = JSON.parse(JSON.stringify(htmlbuildOpts));
   let htmlbuildOptsProd = JSON.parse(JSON.stringify(htmlbuildOpts));
+
   htmlbuildOptsDev.options.scripts = {bundle: ['dist/bundle.annotated.js']};
   htmlbuildOptsProd.options.scripts = {bundle: ['dist/bundle.min.js']};
 
@@ -64,7 +67,9 @@ module.exports = function (grunt) {
         dest: "src-es5",
         options: {
           sourceMap: true,
-          "plugins": []
+          "plugins": [
+            // "transform-function-bind"
+          ]
         },
       },
     },
@@ -72,14 +77,44 @@ module.exports = function (grunt) {
     copy: {
       main: {
         files: [
-          {expand: true, cwd: 'src/app/components', src: '**/*.html', dest: 'dist/components/'},
-          {expand: true, cwd: 'src/app/directives', src: '**/*.html', dest: 'dist/directives/'},
           {expand: true, cwd: 'src/static/images', src: '**/*', dest: 'dist/static/images/'},
           {expand: true, cwd: 'src/static/css', src: '**/*', dest: 'dist/static/css/'},
           {expand: true, cwd: 'src/static/fontawesome', src: '**/*', dest: 'dist/static/fontawesome/'},
           {expand: true, cwd: 'src/static/js', src: '**/*', dest: 'dist/static/js/'},
         ],
       },
+    },
+    // https://www.npmjs.com/package/grunt-string-replace
+    // https://github.com/eruizdechavez/grunt-string-replace
+    'string-replace': {
+      dev: {
+        files: [
+          {expand: true, cwd: 'src/app/components', src: '**/*.html', dest: 'dist/components/'},
+          {expand: true, cwd: 'src/app/directives', src: '**/*.html', dest: 'dist/directives/'},
+          // 'dist/index.html': 'dist/index-unminified.html'
+        ],
+        options: {
+          replacements: [{
+            pattern: /<code class="highlight\s+pre" data-lang="html">([\s\S]*?)<\/code>/igm,
+            replacement: function (match, p1) {
+              let contEscaped = escape(p1);
+
+              contEscaped = contEscaped.replace(/tagContent--(.+)--tagContentEnd/g, function (match, tagContent) {
+                return `<span class="tag-content">${tagContent}</span>`;
+              });
+
+              contEscaped = contEscaped.replace(/tagAttr--(.+)--tagAttrEnd/g, function (match, tagAttr) {
+                return `<span class="tag-attribute">${tagAttr}</span>`;
+              });
+
+              contEscaped = contEscaped.replace(/^\n|\r/, '');
+              contEscaped = contEscaped.replace(/\n|\r$/, '');
+
+              return `<code class="highlight pre" data-lang="html">${contEscaped}<\/code>`;
+            }
+          }]
+        }
+      }
     },
     // https://www.npmjs.com/package/grunt-browserify
     browserify: {
@@ -98,7 +133,8 @@ module.exports = function (grunt) {
                 "presets": ["es2015"],
                 "plugins": [
                   "add-module-exports",
-                  "transform-class-properties",
+                  // "transform-class-properties",
+                  // "transform-function-bind",
                   ["angularjs-annotate", { "explicitOnly" : true}]
                 ]
               }
@@ -147,10 +183,18 @@ module.exports = function (grunt) {
   });
 
   // grunt.registerTask('serve', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'htmlbuild:dev', 'connect']);
-  grunt.registerTask('serve:dev', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'ngAnnotate:dev', 'htmlbuild:dev', 'browserSync']);
-  grunt.registerTask('serve:prod', ['clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'browserify:dev', 'ngAnnotate:dev', 'uglify:dev', 'htmlbuild:prod', 'browserSync']);
-  grunt.registerTask('jschanged', ['babel:dev', 'copy', 'browserify:dev', 'ngAnnotate:dev', 'browserify:dev', 'htmlbuild:dev']);
-  grunt.registerTask('htmlchanged', ['copy', 'htmlbuild:dev']);
+  grunt.registerTask('serve:dev', [
+    'clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'string-replace:dev',
+    'browserify:dev', 'ngAnnotate:dev', 'htmlbuild:dev', 'browserSync'
+  ]);
+  grunt.registerTask('serve:prod', [
+    'clean', 'less:dev', 'postcss:dev', 'babel:dev', 'copy', 'string-replace:dev', 'browserify:dev',
+    'ngAnnotate:dev', 'uglify:dev', 'htmlbuild:prod', 'browserSync'
+  ]);
+  grunt.registerTask('jschanged', [
+    'babel:dev', 'copy', 'string-replace:dev', 'browserify:dev', 'ngAnnotate:dev', 'browserify:dev', 'htmlbuild:dev'
+  ]);
+  grunt.registerTask('htmlchanged', ['copy', 'string-replace:dev', 'htmlbuild:dev']);
   grunt.registerTask('lesschanged', ['less:dev', 'postcss:dev']);
   grunt.registerTask('watchFiles', ['watch']);
 
